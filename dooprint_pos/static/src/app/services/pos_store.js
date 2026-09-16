@@ -11,6 +11,32 @@ patch(PosStore.prototype, {
                 this.config.dooprint_url
             );
         }
+        if (this.usesDooprintFromBrowser()) {
+            // Turn on Odoo's Local Network Access handling (permission check, notifications and
+            // the status in the menu) as the "point_of_sale.use_lna" parameter does for Epson.
+            odoo.use_lna = true;
+        }
+    },
+
+    /**
+     * True when this POS sends tickets from the browser straight to a Dooprint device.
+     */
+    usesDooprintFromBrowser() {
+        return (
+            this.config.dooprint_delivery === "browser" &&
+            (Boolean(this.config.raw.dooprint_printer_id) ||
+                this.models["pos.printer"].getAll().some((printer) => printer.printer_type === "dooprint"))
+        );
+    },
+
+    /**
+     * Address of the first Dooprint device the browser talks to.
+     */
+    dooprintDeviceUrl() {
+        if (this.config.dooprint_url) {
+            return this.config.dooprint_url;
+        }
+        return this.models["pos.printer"].getAll().find((printer) => printer.dooprint_url)?.dooprint_url;
     },
 
     /**

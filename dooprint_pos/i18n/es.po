@@ -17,12 +17,22 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: dooprint_pos
+#. odoo-javascript
+#: code:addons/dooprint_pos/static/src/app/components/navbar/navbar.js:0
+msgid ""
+"%s\n"
+"The Dooprint device at %s cannot be reached from this browser."
+msgstr ""
+"%s\n"
+"Este navegador no llega al dispositivo Dooprint en %s."
+
+#. module: dooprint_pos
 #: model:ir.model,name:dooprint_pos.model_res_config_settings
 msgid "Config Settings"
 msgstr ""
 
 #. module: dooprint_pos
-#: model_terms:ir.ui.view,arch_db:dooprint_pos.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:dooprint_pos.pos_config_view_form
 msgid "Delivery"
 msgstr "Envío"
 
@@ -35,13 +45,12 @@ msgstr ""
 
 #. module: dooprint_pos
 #: model:ir.model.fields,field_description:dooprint_pos.field_pos_config__dooprint_delivery
-#: model:ir.model.fields,field_description:dooprint_pos.field_res_config_settings__pos_dooprint_delivery
 msgid "Dooprint Delivery"
 msgstr "Envío Dooprint"
 
 #. module: dooprint_pos
 #: model:ir.model.fields,field_description:dooprint_pos.field_pos_printer__dooprint_printer_id
-#: model_terms:ir.ui.view,arch_db:dooprint_pos.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:dooprint_pos.pos_config_view_form
 msgid "Dooprint Printer"
 msgstr "Impresora Dooprint"
 
@@ -70,7 +79,13 @@ msgid "ID"
 msgstr ""
 
 #. module: dooprint_pos
-#: model_terms:ir.ui.view,arch_db:dooprint_pos.res_config_settings_view_form
+#. odoo-javascript
+#: code:addons/dooprint_pos/static/src/app/components/navbar/navbar.js:0
+msgid "LNA Permission status"
+msgstr ""
+
+#. module: dooprint_pos
+#: model_terms:ir.ui.view,arch_db:dooprint_pos.pos_config_view_form
 msgid "Link Cashdrawer"
 msgstr "Vincular cajón de dinero"
 
@@ -97,7 +112,7 @@ msgid "Point of Sale Printer"
 msgstr ""
 
 #. module: dooprint_pos
-#: model_terms:ir.ui.view,arch_db:dooprint_pos.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:dooprint_pos.pos_config_view_form
 msgid ""
 "Print receipts and open the cash drawer with a printer of a Dooprint device"
 msgstr ""
@@ -105,7 +120,7 @@ msgstr ""
 "dispositivo Dooprint"
 
 #. module: dooprint_pos
-#: model_terms:ir.ui.view,arch_db:dooprint_pos.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:dooprint_pos.pos_config_view_form
 msgid "Printer"
 msgstr "Impresora"
 
@@ -176,7 +191,7 @@ msgid "The Dooprint device has not reported its address."
 msgstr "El dispositivo Dooprint no ha informado de su dirección."
 
 #. module: dooprint_pos
-#: model_terms:ir.ui.view,arch_db:dooprint_pos.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:dooprint_pos.pos_config_view_form
 msgid ""
 "The delivery also applies to the preparation printers of type Dooprint."
 msgstr ""
@@ -217,7 +232,6 @@ msgstr "A través de Odoo"
 
 #. module: dooprint_pos
 #: model:ir.model.fields,help:dooprint_pos.field_pos_config__dooprint_delivery
-#: model:ir.model.fields,help:dooprint_pos.field_res_config_settings__pos_dooprint_delivery
 msgid ""
 "Through Odoo: the POS sends the tickets to Odoo, which queues them for the device. Works from any network.\n"
 "From the browser: the POS sends them straight to the device. The browser must be on the device network and allow Local Network Access."

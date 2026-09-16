@@ -24,6 +24,7 @@ Each point of sale chooses how its tickets reach the printer:
     ],
 
     'data': [
+        'views/pos_config_views.xml',
         'views/pos_printer_views.xml',
         'views/res_config_settings_views.xml',
     ],

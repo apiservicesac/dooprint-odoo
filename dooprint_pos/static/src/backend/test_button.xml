@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates xml:space="preserve">
     <t t-name="dooprint_pos.TestButton">
-        <button type="button" class="btn btn-link px-0 mt-2" t-on-click.stop="onClick">
+        <button type="button" class="btn btn-link px-0 mt-2 o_dooprint_pos_test" t-on-click.stop="onClick">
             <i class="fa fa-print me-1"/>Test
         </button>
     </t>
