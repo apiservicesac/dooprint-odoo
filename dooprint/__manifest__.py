@@ -1,5 +1,5 @@
 {
-    'name': "dooprint",
+    'name': "Dooprint",
     'summary': "Print devices for Odoo: pairing, printers and a job queue",
 
     'description': """

@@ -6,7 +6,7 @@
 		<field name="inherit_id" ref="base.res_config_settings_view_form"/>
 		<field name="arch" type="xml">
 			<xpath expr="//form" position="inside">
-				<app data-string="dooprint" string="dooprint" name="dooprint" groups="dooprint.group_dooprint_manager">
+				<app data-string="Dooprint" string="Dooprint" name="dooprint" groups="dooprint.group_dooprint_manager">
 					<block title="Print Jobs" name="dooprint_jobs_setting">
 						<setting string="Delivered job timeout" help="Minutes before an unconfirmed job is marked as failed.">
 							<field name="dooprint_job_timeout_minutes"/>

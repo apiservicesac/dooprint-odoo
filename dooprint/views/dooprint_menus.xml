@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-	<menuitem id="dooprint_menu_root" name="dooprint" web_icon="dooprint,static/description/icon.png"
+	<menuitem id="dooprint_menu_root" name="Dooprint" web_icon="dooprint,static/description/icon.png"
 		groups="group_dooprint_user" sequence="265"/>
 
 	<menuitem id="dooprint_device_menu_action" action="dooprint_device_action" parent="dooprint_menu_root" sequence="1"/>

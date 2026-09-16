@@ -74,7 +74,7 @@ msgstr ""
 #. module: dooprint_pos
 #: model_terms:ir.ui.view,arch_db:dooprint_pos.res_config_settings_view_form
 msgid ""
-"Print receipts and open the cash drawer with a printer of a dooprint device"
+"Print receipts and open the cash drawer with a printer of a Dooprint device"
 msgstr ""
 
 #. module: dooprint_pos
@@ -91,7 +91,7 @@ msgstr ""
 #: model:ir.model.fields,help:dooprint_pos.field_pos_config__dooprint_printer_id
 #: model:ir.model.fields,help:dooprint_pos.field_res_config_settings__pos_dooprint_printer_id
 msgid ""
-"Receipt printer of a dooprint device. It is also the one that opens the cash"
+"Receipt printer of a Dooprint device. It is also the one that opens the cash"
 " drawer."
 msgstr ""
 
@@ -111,21 +111,21 @@ msgstr ""
 #. module: dooprint_pos
 #: model_terms:ir.ui.view,arch_db:dooprint_pos.res_config_settings_view_form
 msgid ""
-"The delivery also applies to the preparation printers of type dooprint."
+"The delivery also applies to the preparation printers of type Dooprint."
 msgstr ""
 
 #. module: dooprint_pos
 #. odoo-javascript
 #: code:addons/dooprint_pos/static/src/app/utils/printer/dooprint_printer.js:0
 msgid ""
-"The dooprint device at %s cannot be reached. Check that this browser is on "
+"The Dooprint device at %s cannot be reached. Check that this browser is on "
 "the same network and allows Local Network Access."
 msgstr ""
 
 #. module: dooprint_pos
 #. odoo-javascript
 #: code:addons/dooprint_pos/static/src/app/utils/printer/dooprint_printer.js:0
-msgid "The dooprint device has not reported its address."
+msgid "The Dooprint device has not reported its address."
 msgstr ""
 
 #. module: dooprint_pos
@@ -155,29 +155,29 @@ msgstr ""
 
 #. module: dooprint_pos
 #: model:ir.model.fields.selection,name:dooprint_pos.selection__pos_printer__printer_type__dooprint
-msgid "Use a dooprint printer"
+msgid "Use a Dooprint printer"
 msgstr ""
 
 #. module: dooprint_pos
 #: model:ir.model.fields,field_description:dooprint_pos.field_pos_config__dooprint_delivery
 #: model:ir.model.fields,field_description:dooprint_pos.field_res_config_settings__pos_dooprint_delivery
-msgid "dooprint Delivery"
+msgid "Dooprint Delivery"
 msgstr ""
 
 #. module: dooprint_pos
 #: model:ir.model.fields,field_description:dooprint_pos.field_pos_printer__dooprint_printer_id
 #: model_terms:ir.ui.view,arch_db:dooprint_pos.res_config_settings_view_form
-msgid "dooprint Printer"
+msgid "Dooprint Printer"
 msgstr ""
 
 #. module: dooprint_pos
 #: model:ir.model.fields,field_description:dooprint_pos.field_pos_config__dooprint_url
 #: model:ir.model.fields,field_description:dooprint_pos.field_pos_printer__dooprint_url
-msgid "dooprint Printer Address"
+msgid "Dooprint Printer Address"
 msgstr ""
 
 #. module: dooprint_pos
 #: model:ir.model.fields,field_description:dooprint_pos.field_pos_config__dooprint_printer_id
 #: model:ir.model.fields,field_description:dooprint_pos.field_res_config_settings__pos_dooprint_printer_id
-msgid "dooprint Receipt Printer"
+msgid "Dooprint Receipt Printer"
 msgstr ""

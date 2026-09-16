@@ -1,5 +1,5 @@
 {
-    'name': "dooprint for Point of Sale",
+    'name': "Dooprint for Point of Sale",
     'summary': "Print POS receipts and order tickets on dooprint printers, with or without the browser",
 
     'description': """

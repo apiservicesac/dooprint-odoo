@@ -17,16 +17,16 @@ class PosConfig(models.Model):
     _inherit = 'pos.config'
 
     dooprint_printer_id = fields.Many2one(
-        'dooprint.printer', string='dooprint Receipt Printer',
+        'dooprint.printer', string='Dooprint Receipt Printer',
         domain="[('printer_type', '=', 'receipt'), '|', ('device_id.company_id', '=', False), ('device_id.company_id', '=', company_id)]",
-        help="Receipt printer of a dooprint device. It is also the one that opens the cash drawer.")
+        help="Receipt printer of a Dooprint device. It is also the one that opens the cash drawer.")
     dooprint_delivery = fields.Selection(
-        DELIVERY_SELECTION, string='dooprint Delivery', required=True, default='server',
+        DELIVERY_SELECTION, string='Dooprint Delivery', required=True, default='server',
         help="Through Odoo: the POS sends the tickets to Odoo, which queues them for the device. "
              "Works from any network.\n"
              "From the browser: the POS sends them straight to the device. The browser must be on the "
              "device network and allow Local Network Access.")
-    dooprint_url = fields.Char(string='dooprint Printer Address', compute='_compute_dooprint_url')
+    dooprint_url = fields.Char(string='Dooprint Printer Address', compute='_compute_dooprint_url')
 
     @api.depends('dooprint_printer_id')
     def _compute_dooprint_url(self):

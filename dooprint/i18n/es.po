@@ -1048,8 +1048,8 @@ msgstr "Windows"
 #: model:ir.ui.menu,name:dooprint.dooprint_menu_root
 #: model:res.groups.privilege,name:dooprint.res_groups_privilege_dooprint
 #: model_terms:ir.ui.view,arch_db:dooprint.res_config_settings_view_form
-msgid "dooprint"
-msgstr "dooprint"
+msgid "Dooprint"
+msgstr "Dooprint"
 
 #. module: dooprint
 #: model:ir.model,name:dooprint.model_dooprint_config

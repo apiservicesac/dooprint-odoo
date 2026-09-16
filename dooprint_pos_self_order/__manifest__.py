@@ -1,5 +1,5 @@
 {
-    'name': "dooprint for POS Self Order",
+    'name': "Dooprint for POS Self Order",
     'summary': "Print kiosk and mobile self orders on dooprint printers",
 
     'description': """

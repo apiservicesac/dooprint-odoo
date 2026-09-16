@@ -9,8 +9,8 @@
 				<attribute name="invisible">not pos_iface_print_auto or not pos_is_posbox and not pos_other_devices and not pos_dooprint_printer_id</attribute>
 			</xpath>
 			<setting id="pos_other_devices" position="before">
-				<setting id="pos_dooprint" string="dooprint Printer"
-					help="Print receipts and open the cash drawer with a printer of a dooprint device">
+				<setting id="pos_dooprint" string="Dooprint Printer"
+					help="Print receipts and open the cash drawer with a printer of a Dooprint device">
 					<div class="content-group">
 						<div class="row mt-2">
 							<label string="Printer" for="pos_dooprint_printer_id" class="col-lg-4 o_light_label"/>
@@ -24,7 +24,7 @@
 							<label string="Link Cashdrawer" for="pos_iface_cashdrawer" class="col-lg-4 o_light_label"/>
 							<field name="pos_iface_cashdrawer" class="col"/>
 						</div>
-						<div class="text-muted small mt-2">The delivery also applies to the preparation printers of type dooprint.</div>
+						<div class="text-muted small mt-2">The delivery also applies to the preparation printers of type Dooprint.</div>
 						<button name="action_dooprint_test" type="object" string="Test" icon="fa-print"
 							class="btn-link px-0 mt-2" invisible="not pos_dooprint_printer_id"/>
 					</div>

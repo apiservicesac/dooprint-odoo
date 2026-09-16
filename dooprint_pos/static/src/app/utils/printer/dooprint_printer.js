@@ -4,7 +4,7 @@ import { rpc } from "@web/core/network/rpc";
 import { _t } from "@web/core/l10n/translation";
 
 /**
- * Printer of a dooprint device. The device speaks ePOS, so the ticket is rendered exactly like
+ * Printer of a Dooprint device. The device speaks ePOS, so the ticket is rendered exactly like
  * for an Epson printer; only the way it travels changes:
  *
  * - "server": the ticket goes to Odoo, which queues it for the device. Works from any network.
@@ -29,12 +29,12 @@ export class DooprintPrinter extends EpsonPrinter {
     async sendPrintingJob(payload) {
         if (this.delivery === "browser") {
             if (!this.url) {
-                return this.notReachable(_t("The dooprint device has not reported its address."));
+                return this.notReachable(_t("The Dooprint device has not reported its address."));
             }
             const result = await super.sendPrintingJob(payload);
             if (result.errorCode === "PRINTER_NOT_REACHABLE") {
                 result.message = _t(
-                    "The dooprint device at %s cannot be reached. Check that this browser is on the same network and allows Local Network Access.",
+                    "The Dooprint device at %s cannot be reached. Check that this browser is on the same network and allows Local Network Access.",
                     this.url
                 );
             }
