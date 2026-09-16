@@ -33,6 +33,24 @@ class PosConfig(models.Model):
         for config in self:
             config.dooprint_url = dooprint_url(config.dooprint_printer_id)
 
+    @api.model
+    def dooprint_test_info(self, printer_id):
+        """Address of a printer for the settings test button, which may run before saving."""
+        printer = self.env['dooprint.printer'].sudo().browse(int(printer_id)).exists()
+        return {'url': dooprint_url(printer), 'payload': printer._test_payload() if printer else ''}
+
+    @api.model
+    def dooprint_test_print(self, printer_id):
+        """Queue a test page through Odoo from the settings, before saving them."""
+        self.check_access('write')
+        printer = self.env['dooprint.printer'].sudo().browse(int(printer_id)).exists()
+        if not printer:
+            return {'result': False, 'message': self.env._("Select a printer first.")}
+        job = self.env['dooprint.job'].sudo()._enqueue(printer, printer._test_payload(), name=self.env._("Test page"))
+        if job.state == 'failed':
+            return {'result': False, 'message': job.error_message}
+        return {'result': True, 'message': self.env._("Test page queued.")}
+
     def _dooprint_printers(self):
         """dooprint printers this point of sale may print on."""
         self.ensure_one()

@@ -14,12 +14,3 @@ class ResConfigSettings(models.TransientModel):
                  'pos_dooprint_printer_id')
     def _compute_pos_iface_cashdrawer(self):
         return super()._compute_pos_iface_cashdrawer()
-
-    def action_dooprint_test(self):
-        self.ensure_one()
-        self.pos_dooprint_printer_id.sudo().action_test_print()
-        return {
-            'type': 'ir.actions.client',
-            'tag': 'display_notification',
-            'params': {'type': 'success', 'message': self.env._("Test page queued.")},
-        }

@@ -25,8 +25,9 @@
 							<field name="pos_iface_cashdrawer" class="col"/>
 						</div>
 						<div class="text-muted small mt-2">The delivery also applies to the preparation printers of type Dooprint.</div>
-						<button name="action_dooprint_test" type="object" string="Test" icon="fa-print"
-							class="btn-link px-0 mt-2" invisible="not pos_dooprint_printer_id"/>
+						<div invisible="not pos_dooprint_printer_id">
+							<widget name="dooprint_pos_test"/>
+						</div>
 					</div>
 				</setting>
 			</setting>

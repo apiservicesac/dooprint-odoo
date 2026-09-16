@@ -28,6 +28,9 @@ Each point of sale chooses how its tickets reach the printer:
         'views/res_config_settings_views.xml',
     ],
     'assets': {
+        'web.assets_backend': [
+            'dooprint_pos/static/src/backend/**/*',
+        ],
         'point_of_sale._assets_pos': [
             'dooprint_pos/static/src/app/**/*',
         ],
