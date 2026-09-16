@@ -1,0 +1,73 @@
+import { EpsonPrinter } from "@point_of_sale/app/utils/printer/epson_printer";
+import { getLNATargetAddressSpace } from "@point_of_sale/app/utils/init_lna";
+import { rpc } from "@web/core/network/rpc";
+import { _t } from "@web/core/l10n/translation";
+
+/**
+ * Printer of a dooprint device. The device speaks ePOS, so the ticket is rendered exactly like
+ * for an Epson printer; only the way it travels changes:
+ *
+ * - "server": the ticket goes to Odoo, which queues it for the device. Works from any network.
+ * - "browser": the ticket goes straight to the device over the local network.
+ */
+export class DooprintPrinter extends EpsonPrinter {
+    setup({ configId, printerId, url, delivery }) {
+        super.setup({ ip: "" });
+        this.configId = configId;
+        this.printerId = printerId;
+        this.delivery = delivery;
+        // The device serves plain HTTP on the local network: from an HTTPS page the browser only
+        // allows it through Local Network Access.
+        this.url = url;
+        this.address = `${url}/cgi-bin/epos/service.cgi`;
+        this.lnaTargetAddressSpace = getLNATargetAddressSpace(this.address);
+    }
+
+    /**
+     * @override
+     */
+    async sendPrintingJob(payload) {
+        if (this.delivery === "browser") {
+            if (!this.url) {
+                return this.notReachable(_t("The dooprint device has not reported its address."));
+            }
+            const result = await super.sendPrintingJob(payload);
+            if (result.errorCode === "PRINTER_NOT_REACHABLE") {
+                result.message = _t(
+                    "The dooprint device at %s cannot be reached. Check that this browser is on the same network and allows Local Network Access.",
+                    this.url
+                );
+            }
+            return result;
+        }
+        try {
+            return await this.sendThroughOdoo(payload);
+        } catch {
+            return this.notReachable(_t("Odoo could not queue the ticket. Check your connection."));
+        }
+    }
+
+    sendThroughOdoo(payload) {
+        return rpc("/dooprint_pos/print", {
+            config_id: this.configId,
+            printer_id: this.printerId,
+            payload,
+        });
+    }
+
+    notReachable(message) {
+        return { result: false, canRetry: true, errorCode: "PRINTER_NOT_REACHABLE", message };
+    }
+
+    /**
+     * @override
+     * Odoo explains why a job failed; show that instead of the Epson error codes.
+     */
+    getResultsError(printResult) {
+        const error = super.getResultsError(printResult);
+        if (printResult?.message) {
+            error.message.body = printResult.message;
+        }
+        return error;
+    }
+}

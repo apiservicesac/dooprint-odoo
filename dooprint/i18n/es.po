@@ -1,0 +1,1087 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* dooprint
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0-20260817\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-16 16:11+0000\n"
+"PO-Revision-Date: 2026-09-16 16:11+0000\n"
+"Last-Translator: \n"
+"Language-Team: Spanish\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: dooprint
+#. odoo-python
+#: code:addons/dooprint/models/dooprint_job.py:0
+msgid "%s job(s) queued again."
+msgstr "%s trabajo(s) encolado(s) de nuevo."
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_kanban
+msgid "<i class=\"fa fa-building-o me-1\" title=\"Local\"/>"
+msgstr "<i class=\"fa fa-building-o me-1\" title=\"Local\"/>"
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_kanban
+msgid "<i class=\"fa fa-cloud me-1\" title=\"Agent\"/>"
+msgstr "<i class=\"fa fa-cloud me-1\" title=\"Agente\"/>"
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_kanban
+msgid "<i class=\"fa fa-exclamation-triangle me-1\" title=\"Failed\"/>Failed"
+msgstr "<i class=\"fa fa-exclamation-triangle me-1\" title=\"Con error\"/>Con error"
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_printer_view_kanban
+msgid "<i class=\"fa fa-file-text-o me-1\" title=\"Jobs\"/>"
+msgstr "<i class=\"fa fa-file-text-o me-1\" title=\"Trabajos\"/>"
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_kanban
+msgid "<i class=\"fa fa-heartbeat me-1\" title=\"Last seen\"/>Last seen"
+msgstr "<i class=\"fa fa-heartbeat me-1\" title=\"Último contacto\"/>Último contacto"
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_kanban
+msgid "<i class=\"fa fa-hourglass-half me-1\" title=\"Pending\"/>Pending"
+msgstr "<i class=\"fa fa-hourglass-half me-1\" title=\"Pendientes\"/>Pendientes"
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_kanban
+msgid "<i class=\"fa fa-print me-1\" title=\"Printers\"/>Printers"
+msgstr "<i class=\"fa fa-print me-1\" title=\"Ticketeras\"/>Ticketeras"
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_printer_view_kanban
+msgid "<i class=\"fa fa-server fa-fw\" title=\"Device\"/>"
+msgstr "<i class=\"fa fa-server fa-fw\" title=\"Equipo\"/>"
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_kanban
+msgid "<i class=\"fa fa-server fa-lg\" title=\"Device\"/>"
+msgstr "<i class=\"fa fa-server fa-lg\" title=\"Equipo\"/>"
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_form
+msgid "<span class=\"o_stat_text\">Printers</span>"
+msgstr "<span class=\"o_stat_text\">Ticketeras</span>"
+
+#. module: dooprint
+#: model:ir.model.fields,help:dooprint.field_res_config_settings__dooprint_job_timeout_minutes
+msgid ""
+"A job picked up by a device and not confirmed within this time is marked as "
+"failed."
+msgstr ""
+"Un trabajo que el equipo recoge y no confirma en este tiempo se marca como "
+"fallido."
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_device__active
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_printer__active
+msgid "Active"
+msgstr "Activo"
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_printer_view_form
+msgid "Activity"
+msgstr "Actividad"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_device__address
+msgid "Address"
+msgstr "Dirección"
+
+#. module: dooprint
+#: model:ir.model.fields,help:dooprint.field_dooprint_device__address
+msgid ""
+"Address of its print server as the device sees itself. In local mode Odoo "
+"sends jobs here."
+msgstr ""
+"Dirección de su servidor de impresión tal como el equipo se ve a sí mismo. "
+"En modo local, Odoo envía aquí los trabajos."
+
+#. module: dooprint
+#: model:res.groups,name:dooprint.group_dooprint_manager
+msgid "Administrator"
+msgstr "Administrador"
+
+#. module: dooprint
+#: model:ir.model.fields.selection,name:dooprint.selection__dooprint_device__mode__agent
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_search
+msgid "Agent"
+msgstr "Agente"
+
+#. module: dooprint
+#: model:ir.model.fields,help:dooprint.field_dooprint_device__mode
+msgid ""
+"Agent: the device picks up its jobs; works with Odoo outside its network.\n"
+"Local: Odoo sends the jobs; only when the device is on Odoo's network."
+msgstr ""
+"Agente: el equipo recoge sus trabajos; sirve con Odoo fuera de su red.\n"
+"Local: Odoo envía los trabajos; solo con el equipo en la red de Odoo."
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_form
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_kanban
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_search
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_printer_view_form
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_printer_view_search
+msgid "Archived"
+msgstr "Archivado"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_job__attempts
+msgid "Attempts"
+msgstr "Intentos"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_command__name
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_command_view_search
+msgid "Command"
+msgstr "Orden"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_device__command_count
+msgid "Command Count"
+msgstr "Número de órdenes"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_device__command_ids
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_form
+msgid "Commands"
+msgstr "Órdenes"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_device__company_id
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_job__company_id
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_printer__company_id
+msgid "Company"
+msgstr "Compañía"
+
+#. module: dooprint
+#: model:ir.model,name:dooprint.model_res_config_settings
+msgid "Config Settings"
+msgstr "Ajustes de configuración"
+
+#. module: dooprint
+#: model:ir.ui.menu,name:dooprint.dooprint_menu_config
+msgid "Configuration"
+msgstr "Configuración"
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_kanban
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_list
+msgid "Connect"
+msgstr "Conectar"
+
+#. module: dooprint
+#. odoo-python
+#: code:addons/dooprint/wizard/dooprint_pairing.py:0
+#: model:ir.actions.server,name:dooprint.dooprint_connect_action
+#: model:ir.model,name:dooprint.model_dooprint_pairing
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_pairing_view_form
+msgid "Connect a Device"
+msgstr "Conectar un equipo"
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_pairing_view_form
+msgid ""
+"Connect a computer running dooprint to this database using the pairing "
+"token."
+msgstr ""
+"Conecta con esta base de datos un equipo que tenga dooprint usando el token "
+"de emparejamiento."
+
+#. module: dooprint
+#: model:ir.model.fields.selection,name:dooprint.selection__dooprint_printer__connected_status__connected
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_list
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_printer_view_search
+msgid "Connected"
+msgstr "Conectada"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_device__connected_printer_count
+msgid "Connected Printers"
+msgstr "Ticketeras conectadas"
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_kanban
+msgid "Connected printers"
+msgstr "Ticketeras conectadas"
+
+#. module: dooprint
+#: model:ir.model.fields,help:dooprint.field_dooprint_printer__connected_status
+msgid "Connected when the device reported it in its last heartbeat."
+msgstr "Conectada cuando el equipo la informó en su último latido."
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_printer__connection
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_form
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_printer_view_search
+msgid "Connection"
+msgstr "Conexión"
+
+#. module: dooprint
+#: model:res.groups,comment:dooprint.group_dooprint_manager
+msgid "Connects devices, sends test pages and remote commands."
+msgstr "Conecta equipos, envía páginas de prueba y órdenes remotas."
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_job__payload
+msgid "Content"
+msgstr "Contenido"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_command__create_uid
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_device__create_uid
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_job__create_uid
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_pairing__create_uid
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_printer__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_command__create_date
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_device__create_date
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_job__create_date
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_pairing__create_date
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_printer__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: dooprint
+#: model:ir.model.fields,help:dooprint.field_dooprint_device__token
+msgid "Credential the device uses to fetch its jobs. Issued when pairing."
+msgstr ""
+"Credencial con la que el equipo pide sus trabajos. Se entrega al emparejar."
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_job_view_search
+msgid "Day"
+msgstr "Día"
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.res_config_settings_view_form
+msgid "Days finished jobs are kept before being deleted."
+msgstr "Días que se conservan los trabajos terminados antes de borrarlos."
+
+#. module: dooprint
+#: model:ir.model.fields.selection,name:dooprint.selection__dooprint_command__state__sent
+#: model:ir.model.fields.selection,name:dooprint.selection__dooprint_job__state__sent
+msgid "Delivered"
+msgstr "Entregado"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_res_config_settings__dooprint_job_timeout_minutes
+msgid "Delivered Job Timeout (min)"
+msgstr "Espera máxima de un trabajo entregado (min)"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_job__sent_at
+msgid "Delivered On"
+msgstr "Entregado el"
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.res_config_settings_view_form
+msgid "Delivered job timeout"
+msgstr "Espera máxima de un trabajo entregado"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_job__name
+msgid "Description"
+msgstr "Descripción"
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_job_view_form
+msgid "Destination"
+msgstr "Destino"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_command__device_id
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_job__device_id
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_printer__device_id
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_command_view_search
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_form
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_job_view_search
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_printer_view_search
+msgid "Device"
+msgstr "Equipo"
+
+#. module: dooprint
+#: model:ir.model,name:dooprint.model_dooprint_command
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_command_view_form
+msgid "Device Command"
+msgstr "Orden al equipo"
+
+#. module: dooprint
+#: model:ir.actions.act_window,name:dooprint.dooprint_command_action
+#: model:ir.ui.menu,name:dooprint.dooprint_command_menu_action
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_command_view_list
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_command_view_search
+msgid "Device Commands"
+msgstr "Órdenes a equipos"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_printer__device_state
+msgid "Device Status"
+msgstr "Estado del equipo"
+
+#. module: dooprint
+#. odoo-python
+#: code:addons/dooprint/models/dooprint_device.py:0
+msgid "Device unpaired."
+msgstr "Equipo desvinculado."
+
+#. module: dooprint
+#: model:ir.actions.act_window,name:dooprint.dooprint_device_action
+#: model:ir.ui.menu,name:dooprint.dooprint_device_menu_action
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_search
+msgid "Devices"
+msgstr "Equipos"
+
+#. module: dooprint
+#: model:ir.model.fields.selection,name:dooprint.selection__dooprint_printer__connected_status__disconnected
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_printer_view_search
+msgid "Disconnected"
+msgstr "Desconectada"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_command__display_name
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_config__display_name
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_device__display_name
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_job__display_name
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_pairing__display_name
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_printer__display_name
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_render__display_name
+#: model:ir.model.fields,field_description:dooprint.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: dooprint
+#: model:ir.model.fields.selection,name:dooprint.selection__dooprint_command__state__done
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_pairing_view_form
+msgid "Done"
+msgstr "Listo"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_job__duration
+msgid "Duration (s)"
+msgstr "Duración (s)"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_job__error_message
+msgid "Error"
+msgstr "Error"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_job__error_code
+msgid "Error Code"
+msgstr "Código de error"
+
+#. module: dooprint
+#: model_terms:ir.actions.act_window,help:dooprint.dooprint_job_action
+msgid ""
+"Every print requested by another module goes through here, with its result."
+msgstr "Cada impresión que pide otro módulo pasa por aquí, con su resultado."
+
+#. module: dooprint
+#: model:ir.model.fields.selection,name:dooprint.selection__dooprint_command__state__failed
+#: model:ir.model.fields.selection,name:dooprint.selection__dooprint_job__state__failed
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_command_view_search
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_job_view_search
+msgid "Failed"
+msgstr "Con error"
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_form
+msgid "Failed (24 h)"
+msgstr "Con error (24 h)"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_device__failed_job_count
+msgid "Failed Jobs (24 h)"
+msgstr "Trabajos con error (24 h)"
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_kanban
+msgid "Failed jobs in the last 24 hours"
+msgstr "Trabajos con error en las últimas 24 horas"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_job__done_at
+msgid "Finished On"
+msgstr "Terminado el"
+
+#. module: dooprint
+#: model:ir.model.fields,help:dooprint.field_dooprint_command__payload
+msgid "For HTTP requests, in JSON: url, method, headers and body."
+msgstr "Para peticiones HTTP, en JSON: url, método, cabeceras y cuerpo."
+
+#. module: dooprint
+#: model:ir.model.fields,help:dooprint.field_dooprint_job__duration
+msgid "From queued to finished."
+msgstr "Desde que se encoló hasta que terminó."
+
+#. module: dooprint
+#: model:ir.model.fields,help:dooprint.field_dooprint_device__identifier
+msgid "Generated by the device on first start. It never changes."
+msgstr "Lo genera el equipo la primera vez que arranca. No cambia nunca."
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_pairing_view_form
+msgid "Go to the <b>Odoo</b> tab."
+msgstr "Entra en la pestaña <b>Odoo</b>."
+
+#. module: dooprint
+#: model:ir.model.fields.selection,name:dooprint.selection__dooprint_command__name__http
+msgid "HTTP request"
+msgstr "Petición HTTP"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_command__id
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_config__id
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_device__id
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_job__id
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_pairing__id
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_printer__id
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_render__id
+#: model:ir.model.fields,field_description:dooprint.field_res_config_settings__id
+msgid "ID"
+msgstr "ID"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_printer__ip_address
+msgid "IP Address"
+msgstr "Dirección IP"
+
+#. module: dooprint
+#: model:ir.model.fields,help:dooprint.field_dooprint_printer__identifier
+msgid "Id of the printer inside the device."
+msgstr "Id de la ticketera dentro del equipo."
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_device__identifier
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_printer__identifier
+msgid "Identifier"
+msgstr "Identificador"
+
+#. module: dooprint
+#: model_terms:ir.actions.act_window,help:dooprint.dooprint_device_action
+msgid ""
+"Install dooprint on a computer next to the printers and click "
+"<b>Connect</b>."
+msgstr ""
+"Instala dooprint en un equipo junto a las ticketeras y pulsa "
+"<b>Conectar</b>."
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_printer__job_count
+msgid "Job Count"
+msgstr "Número de trabajos"
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.res_config_settings_view_form
+msgid "Job retention"
+msgstr "Conservación de trabajos"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_device__job_ids
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_printer_view_form
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_printer_view_list
+msgid "Jobs"
+msgstr "Trabajos"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_res_config_settings__dooprint_job_retention_days
+msgid "Keep Finished Jobs (days)"
+msgstr "Conservar trabajos terminados (días)"
+
+#. module: dooprint
+#: model:ir.model.fields.selection,name:dooprint.selection__dooprint_printer__printer_type__label
+msgid "Label"
+msgstr "Etiquetas"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_printer__last_job_state
+msgid "Last Job Status"
+msgstr "Estado del último trabajo"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_printer__last_job_date
+msgid "Last Printed"
+msgstr "Última impresión"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_device__last_seen
+msgid "Last Seen"
+msgstr "Último contacto"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_command__write_uid
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_device__write_uid
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_job__write_uid
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_pairing__write_uid
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_printer__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_command__write_date
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_device__write_date
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_job__write_date
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_pairing__write_date
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_printer__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: dooprint
+#: model:ir.model.fields.selection,name:dooprint.selection__dooprint_device__os__linux
+msgid "Linux"
+msgstr "Linux"
+
+#. module: dooprint
+#: model:ir.model.fields.selection,name:dooprint.selection__dooprint_device__mode__local
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_search
+msgid "Local"
+msgstr "Local"
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.res_config_settings_view_form
+msgid "Minutes before an unconfirmed job is marked as failed."
+msgstr "Minutos antes de marcar como fallido un trabajo sin confirmar."
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_device__mode
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_search
+msgid "Mode"
+msgstr "Modo"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_device__name
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_printer__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: dooprint
+#: model:ir.model.fields.selection,name:dooprint.selection__dooprint_printer__connection__network
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_printer_view_kanban
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_printer_view_search
+msgid "Network"
+msgstr "Red"
+
+#. module: dooprint
+#: model_terms:ir.actions.act_window,help:dooprint.dooprint_command_action
+msgid "No commands sent yet"
+msgstr "Aún no se han enviado órdenes"
+
+#. module: dooprint
+#: model_terms:ir.actions.act_window,help:dooprint.dooprint_device_action
+msgid "No device connected yet"
+msgstr "Aún no hay equipos conectados"
+
+#. module: dooprint
+#: model_terms:ir.actions.act_window,help:dooprint.dooprint_job_action
+msgid "No print jobs yet"
+msgstr "Aún no hay trabajos de impresión"
+
+#. module: dooprint
+#: model_terms:ir.actions.act_window,help:dooprint.dooprint_printer_action
+msgid "No printers yet"
+msgstr "Aún no hay ticketeras"
+
+#. module: dooprint
+#: model:ir.model.fields.selection,name:dooprint.selection__dooprint_device__state__offline
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_search
+msgid "Offline"
+msgstr "Sin contacto"
+
+#. module: dooprint
+#: model:ir.model.fields.selection,name:dooprint.selection__dooprint_device__state__online
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_search
+msgid "Online"
+msgstr "En línea"
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_form
+msgid "Open Device"
+msgstr "Abrir equipo"
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_job_view_form
+msgid "Open Source"
+msgstr "Abrir origen"
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_pairing_view_form
+msgid ""
+"Open the dooprint web interface on that computer: <code>http://&lt;computer-"
+"ip&gt;:4547</code>."
+msgstr ""
+"Abre la interfaz web de dooprint en ese equipo: <code>http://&lt;ip-del-"
+"equipo&gt;:4547</code>."
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_device__os
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_search
+msgid "Operating System"
+msgstr "Sistema operativo"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_device__paired
+msgid "Paired"
+msgstr "Emparejado"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_device__paired_at
+msgid "Paired On"
+msgstr "Emparejado el"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_pairing__pairing_token
+msgid "Pairing Token"
+msgstr "Token de emparejamiento"
+
+#. module: dooprint
+#: model:ir.model.fields,help:dooprint.field_dooprint_pairing__pairing_token
+msgid ""
+"Paste it into the Odoo tab of the device. It includes the Odoo address."
+msgstr ""
+"Pégalo en la pestaña Odoo del equipo. Ya incluye la dirección de Odoo."
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_pairing_view_form
+msgid "Paste the pairing token below and click <b>Connect</b>."
+msgstr "Pega el token de emparejamiento de abajo y pulsa <b>Conectar</b>."
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_command_view_search
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_form
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_job_view_search
+msgid "Pending"
+msgstr "Pendientes"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_device__pending_job_count
+msgid "Pending Jobs"
+msgstr "Trabajos pendientes"
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_kanban
+msgid "Pending jobs"
+msgstr "Trabajos pendientes"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_printer__epos_url
+msgid "Print Address"
+msgstr "Dirección de impresión"
+
+#. module: dooprint
+#: model:ir.model,name:dooprint.model_dooprint_device
+msgid "Print Device"
+msgstr "Equipo de impresión"
+
+#. module: dooprint
+#: model:ir.model,name:dooprint.model_dooprint_job
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_job_view_form
+msgid "Print Job"
+msgstr "Trabajo de impresión"
+
+#. module: dooprint
+#: model:ir.actions.act_window,name:dooprint.dooprint_job_action
+#: model:ir.ui.menu,name:dooprint.dooprint_job_menu_action
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_job_view_list
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_job_view_search
+#: model_terms:ir.ui.view,arch_db:dooprint.res_config_settings_view_form
+msgid "Print Jobs"
+msgstr "Trabajos de impresión"
+
+#. module: dooprint
+#. odoo-python
+#: code:addons/dooprint/models/dooprint_job.py:0
+msgid "Print job"
+msgstr "Trabajo de impresión"
+
+#. module: dooprint
+#: model:ir.model.fields.selection,name:dooprint.selection__dooprint_job__state__done
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_job_view_search
+msgid "Printed"
+msgstr "Impreso"
+
+#. module: dooprint
+#: model:ir.model,name:dooprint.model_dooprint_printer
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_job__printer_id
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_job_view_search
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_printer_view_form
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_printer_view_kanban
+msgid "Printer"
+msgstr "Ticketera"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_device__printer_count
+msgid "Printer Count"
+msgstr "Número de ticketeras"
+
+#. module: dooprint
+#: model:ir.actions.act_window,name:dooprint.dooprint_printer_action
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_device__printer_ids
+#: model:ir.ui.menu,name:dooprint.dooprint_printer_menu_action
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_form
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_list
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_printer_view_search
+msgid "Printers"
+msgstr "Ticketeras"
+
+#. module: dooprint
+#: model:ir.model.fields.selection,name:dooprint.selection__dooprint_command__state__queued
+#: model:ir.model.fields.selection,name:dooprint.selection__dooprint_job__state__queued
+msgid "Queued"
+msgstr "En cola"
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_form
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_job_view_form
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_job_view_list
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_job_view_search
+msgid "Queued On"
+msgstr "Encolado el"
+
+#. module: dooprint
+#: model:ir.model.fields.selection,name:dooprint.selection__dooprint_printer__printer_type__receipt
+msgid "Receipt"
+msgstr "Tickets"
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_form
+msgid "Recent Jobs"
+msgstr "Trabajos recientes"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_command__payload
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_command_view_form
+msgid "Request"
+msgstr "Petición"
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_form
+msgid "Rescan Printers"
+msgstr "Releer ticketeras"
+
+#. module: dooprint
+#: model:ir.model.fields.selection,name:dooprint.selection__dooprint_command__name__refresh
+msgid "Rescan printers"
+msgstr "Releer ticketeras"
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_form
+msgid "Restart Service"
+msgstr "Reiniciar servicio"
+
+#. module: dooprint
+#. odoo-python
+#: code:addons/dooprint/models/dooprint_device.py:0
+msgid "Restart command sent."
+msgstr "Orden de reinicio enviada."
+
+#. module: dooprint
+#: model_terms:ir.actions.act_window,help:dooprint.dooprint_command_action
+msgid ""
+"Restart or rescan a device from its form; every command is logged here."
+msgstr ""
+"Reinicia o relee un equipo desde su ficha; cada orden queda registrada aquí."
+
+#. module: dooprint
+#: model:ir.model.fields.selection,name:dooprint.selection__dooprint_command__name__restart
+msgid "Restart the service"
+msgstr "Reiniciar el servicio"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_command__result
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_command_view_form
+msgid "Result"
+msgstr "Resultado"
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_job_view_form
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_job_view_list
+msgid "Retry"
+msgstr "Reintentar"
+
+#. module: dooprint
+#: model:res.groups,comment:dooprint.group_dooprint_user
+msgid "Sees the devices, their printers and the job queue."
+msgstr "Ve los equipos, sus ticketeras y la cola de trabajos."
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_command_view_form
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_command_view_list
+msgid "Sent By"
+msgstr "Enviada por"
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_command_view_form
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_command_view_list
+msgid "Sent On"
+msgstr "Enviada el"
+
+#. module: dooprint
+#: model:ir.actions.act_window,name:dooprint.dooprint_settings_action
+#: model:ir.ui.menu,name:dooprint.dooprint_settings_menu_action
+msgid "Settings"
+msgstr "Ajustes"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_command__res_model
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_job__res_model
+msgid "Source Model"
+msgstr "Modelo de origen"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_command__res_id
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_job__res_id
+msgid "Source Record"
+msgstr "Registro de origen"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_command__state
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_device__state
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_job__state
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_printer__connected_status
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_job_view_search
+msgid "Status"
+msgstr "Estado"
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_job_view_form
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_printer_view_form
+msgid "Technical"
+msgstr "Técnico"
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_form
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_printer_view_form
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_printer_view_list
+msgid "Test"
+msgstr "Probar"
+
+#. module: dooprint
+#. odoo-python
+#: code:addons/dooprint/models/dooprint_printer.py:0
+msgid "Test page"
+msgstr "Página de prueba"
+
+#. module: dooprint
+#. odoo-python
+#: code:addons/dooprint/models/dooprint_printer.py:0
+msgid "Test page queued."
+msgstr "Página de prueba encolada."
+
+#. module: dooprint
+#. odoo-python
+#: code:addons/dooprint/models/dooprint_job.py:0
+msgid "The device cannot be reached: check that it is on and its address."
+msgstr "No se llega al equipo: revisa que esté encendido y su dirección."
+
+#. module: dooprint
+#. odoo-python
+#: code:addons/dooprint/models/dooprint_job.py:0
+msgid "The device could not talk to the printer."
+msgstr "El equipo no pudo comunicarse con la ticketera."
+
+#. module: dooprint
+#. odoo-python
+#: code:addons/dooprint/models/dooprint_job.py:0
+msgid "The device did not understand the request."
+msgstr "El equipo no entendió la petición."
+
+#. module: dooprint
+#. odoo-python
+#: code:addons/dooprint/models/dooprint_job.py:0
+msgid "The device picked up the job but did not confirm it in time."
+msgstr "El equipo recogió el trabajo pero no lo confirmó a tiempo."
+
+#. module: dooprint
+#. odoo-python
+#: code:addons/dooprint/models/dooprint_job.py:0
+msgid "The device queue is full."
+msgstr "El equipo tiene la cola llena."
+
+#. module: dooprint
+#. odoo-python
+#: code:addons/dooprint/models/dooprint_job.py:0
+msgid "The device returned code %s."
+msgstr "El equipo devolvió el código %s."
+
+#. module: dooprint
+#: model:ir.model.constraint,message:dooprint.constraint_dooprint_device_token_unique
+msgid "The device token must be unique."
+msgstr "El token del equipo debe ser único."
+
+#. module: dooprint
+#. odoo-python
+#: code:addons/dooprint/models/dooprint_job.py:0
+msgid "The device was unpaired before printing."
+msgstr "El equipo se desvinculó antes de imprimir."
+
+#. module: dooprint
+#. odoo-python
+#: code:addons/dooprint/models/dooprint_device.py:0
+msgid "The device will rescan its printers."
+msgstr "El equipo releerá sus ticketeras."
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_form
+msgid "The device will restart its service. Continue?"
+msgstr "El equipo reiniciará su servicio. ¿Continuar?"
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_form
+msgid ""
+"The device will stop receiving jobs until it is paired again. Continue?"
+msgstr ""
+"El equipo dejará de recibir trabajos hasta que se empareje de nuevo. "
+"¿Continuar?"
+
+#. module: dooprint
+#. odoo-python
+#: code:addons/dooprint/models/dooprint_device.py:0
+msgid "The status can only be filtered by equality."
+msgstr "El estado solo se puede filtrar por igualdad."
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_pairing_view_form
+msgid ""
+"The token works for one device. Opening this window again issues a new one."
+msgstr ""
+"El token sirve para un equipo. Al abrir de nuevo esta ventana se genera "
+"otro."
+
+#. module: dooprint
+#: model_terms:ir.actions.act_window,help:dooprint.dooprint_printer_action
+msgid ""
+"They show up on their own when a connected device reports the printers it "
+"finds."
+msgstr ""
+"Aparecen solas cuando un equipo conectado informa de las ticketeras que "
+"encuentra."
+
+#. module: dooprint
+#: model:ir.model.constraint,message:dooprint.constraint_dooprint_device_identifier_unique
+msgid "This device is already registered."
+msgstr "Ese equipo ya está registrado."
+
+#. module: dooprint
+#: model:ir.model.constraint,message:dooprint.constraint_dooprint_printer_printer_unique
+msgid "This printer is already registered on the device."
+msgstr "Esa ticketera ya está registrada en el equipo."
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_job_view_form
+msgid "Timeline"
+msgstr "Cronología"
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_job_view_search
+msgid "Today"
+msgstr "Hoy"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_device__token
+msgid "Token"
+msgstr "Token"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_printer__printer_type
+msgid "Type"
+msgstr "Tipo"
+
+#. module: dooprint
+#: model:ir.model.fields.selection,name:dooprint.selection__dooprint_printer__connection__usb
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_printer_view_kanban
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_printer_view_search
+msgid "USB"
+msgstr "USB"
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_form
+msgid "Unpair"
+msgstr "Desvincular"
+
+#. module: dooprint
+#: model:ir.model.fields.selection,name:dooprint.selection__dooprint_device__state__revoked
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_search
+msgid "Unpaired"
+msgstr "Desvinculado"
+
+#. module: dooprint
+#: model:res.groups,name:dooprint.group_dooprint_user
+msgid "User"
+msgstr "Usuario"
+
+#. module: dooprint
+#: model:ir.model.fields,field_description:dooprint.field_dooprint_device__version
+msgid "Version"
+msgstr "Versión"
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_form
+msgid "Visible to all"
+msgstr "Visible para todos"
+
+#. module: dooprint
+#: model:ir.model.fields,help:dooprint.field_dooprint_printer__epos_url
+msgid "Where Odoo sends jobs when the device is on its network."
+msgstr "A donde Odoo envía los trabajos cuando el equipo está en su red."
+
+#. module: dooprint
+#: model:ir.model.fields.selection,name:dooprint.selection__dooprint_device__os__windows
+msgid "Windows"
+msgstr "Windows"
+
+#. module: dooprint
+#: model:ir.module.category,name:dooprint.module_category_dooprint
+#: model:ir.ui.menu,name:dooprint.dooprint_menu_root
+#: model:res.groups.privilege,name:dooprint.res_groups_privilege_dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.res_config_settings_view_form
+msgid "dooprint"
+msgstr "dooprint"
+
+#. module: dooprint
+#: model:ir.model,name:dooprint.model_dooprint_config
+msgid "dooprint Configuration"
+msgstr "Configuración de dooprint"
+
+#. module: dooprint
+#: model:ir.model,name:dooprint.model_dooprint_render
+msgid "dooprint ePOS Renderer"
+msgstr "Render ePOS de dooprint"
+
+#. module: dooprint
+#: model:ir.actions.server,name:dooprint.dooprint_job_housekeeping_cron_ir_actions_server
+msgid "dooprint: Job Housekeeping"
+msgstr "dooprint: mantenimiento de trabajos"
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_form
+msgid "e.g. Canteen PC"
+msgstr "p. ej. PC del comedor"
+
+#. module: dooprint
+#: model:ir.model.fields,help:dooprint.field_dooprint_job__payload
+msgid "ePOS-Print request, or ZPL for label printers."
+msgstr "Petición ePOS-Print, o ZPL para etiquetadoras."
+
+#. module: dooprint
+#: model:ir.model.fields.selection,name:dooprint.selection__dooprint_device__os__darwin
+msgid "macOS"
+msgstr "macOS"
+
+#. module: dooprint
+#: model_terms:ir.ui.view,arch_db:dooprint.dooprint_device_view_kanban
+msgid "v"
+msgstr "v"

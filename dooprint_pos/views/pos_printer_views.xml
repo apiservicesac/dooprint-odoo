@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<record id="pos_printer_view_form" model="ir.ui.view">
+		<field name="name">pos.printer.view.form.dooprint</field>
+		<field name="model">pos.printer</field>
+		<field name="inherit_id" ref="point_of_sale.view_pos_printer_form"/>
+		<field name="arch" type="xml">
+			<field name="proxy_ip" position="after">
+				<field name="dooprint_printer_id" invisible="printer_type != 'dooprint'"
+					required="printer_type == 'dooprint'" options="{'no_create': True}"/>
+			</field>
+			<widget name="point_of_sale_test_epos" position="after">
+				<button name="action_dooprint_test" type="object" string="Test" icon="fa-print" class="btn-secondary"
+					invisible="printer_type != 'dooprint' or not dooprint_printer_id"/>
+			</widget>
+		</field>
+	</record>
+</odoo>

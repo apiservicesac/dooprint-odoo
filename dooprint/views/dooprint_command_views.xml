@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<record id="dooprint_command_view_list" model="ir.ui.view">
+		<field name="name">dooprint.command.list</field>
+		<field name="model">dooprint.command</field>
+		<field name="arch" type="xml">
+			<list string="Device Commands" create="0" edit="0">
+				<field name="create_date" string="Sent On"/>
+				<field name="device_id"/>
+				<field name="name"/>
+				<field name="state" widget="badge"
+					decoration-success="state == 'done'"
+					decoration-warning="state in ['queued', 'sent']"
+					decoration-danger="state == 'failed'"/>
+				<field name="result" optional="show"/>
+				<field name="create_uid" string="Sent By" optional="show"/>
+			</list>
+		</field>
+	</record>
+
+	<record id="dooprint_command_view_form" model="ir.ui.view">
+		<field name="name">dooprint.command.form</field>
+		<field name="model">dooprint.command</field>
+		<field name="arch" type="xml">
+			<form string="Device Command" create="0" edit="0">
+				<header>
+					<field name="state" widget="statusbar"/>
+				</header>
+				<sheet>
+					<group>
+						<group>
+							<field name="device_id"/>
+							<field name="name"/>
+						</group>
+						<group>
+							<field name="create_date" string="Sent On"/>
+							<field name="create_uid" string="Sent By"/>
+						</group>
+					</group>
+					<group string="Request" invisible="not payload">
+						<field name="payload" nolabel="1" colspan="2" class="font-monospace"/>
+					</group>
+					<group string="Result" invisible="not result">
+						<field name="result" nolabel="1" colspan="2" class="font-monospace"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record id="dooprint_command_view_search" model="ir.ui.view">
+		<field name="name">dooprint.command.search</field>
+		<field name="model">dooprint.command</field>
+		<field name="arch" type="xml">
+			<search string="Device Commands">
+				<field name="device_id"/>
+				<filter string="Pending" name="pending" domain="[('state', 'in', ['queued', 'sent'])]"/>
+				<filter string="Failed" name="failed" domain="[('state', '=', 'failed')]"/>
+				<group>
+					<filter string="Device" name="group_device" context="{'group_by': 'device_id'}"/>
+					<filter string="Command" name="group_name" context="{'group_by': 'name'}"/>
+				</group>
+			</search>
+		</field>
+	</record>
+
+	<record id="dooprint_command_action" model="ir.actions.act_window">
+		<field name="name">Device Commands</field>
+		<field name="res_model">dooprint.command</field>
+		<field name="view_mode">list,form</field>
+		<field name="help" type="html">
+			<p class="o_view_nocontent_smiling_face">No commands sent yet</p>
+			<p>Restart or rescan a device from its form; every command is logged here.</p>
+		</field>
+	</record>
+</odoo>

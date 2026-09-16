@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<record id="res_config_settings_view_form" model="ir.ui.view">
+		<field name="name">res.config.settings.view.form.inherit.dooprint</field>
+		<field name="model">res.config.settings</field>
+		<field name="inherit_id" ref="base.res_config_settings_view_form"/>
+		<field name="arch" type="xml">
+			<xpath expr="//form" position="inside">
+				<app data-string="dooprint" string="dooprint" name="dooprint" groups="dooprint.group_dooprint_manager">
+					<block title="Print Jobs" name="dooprint_jobs_setting">
+						<setting string="Delivered job timeout" help="Minutes before an unconfirmed job is marked as failed.">
+							<field name="dooprint_job_timeout_minutes"/>
+						</setting>
+						<setting string="Job retention" help="Days finished jobs are kept before being deleted.">
+							<field name="dooprint_job_retention_days"/>
+						</setting>
+					</block>
+				</app>
+			</xpath>
+		</field>
+	</record>
+
+	<record id="dooprint_settings_action" model="ir.actions.act_window">
+		<field name="name">Settings</field>
+		<field name="res_model">res.config.settings</field>
+		<field name="view_mode">form</field>
+		<field name="target">current</field>
+		<field name="context">{'module': 'dooprint', 'bin_size': False}</field>
+	</record>
+</odoo>

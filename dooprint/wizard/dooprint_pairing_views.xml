@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<record id="dooprint_pairing_view_form" model="ir.ui.view">
+		<field name="name">dooprint.pairing.view.form</field>
+		<field name="model">dooprint.pairing</field>
+		<field name="arch" type="xml">
+			<form string="Connect a Device">
+				Connect a computer running dooprint to this database using the pairing token.
+				<ol class="mt-2">
+					<li>Open the dooprint web interface on that computer: <code>http://&lt;computer-ip&gt;:4547</code>.</li>
+					<li>Go to the <b>Odoo</b> tab.</li>
+					<li>Paste the pairing token below and click <b>Connect</b>.</li>
+				</ol>
+				<group>
+					<field name="pairing_token" widget="CopyClipboardChar" readonly="1"/>
+				</group>
+				<p class="text-muted small mb-0">The token works for one device. Opening this window again issues a new one.</p>
+				<footer>
+					<button class="btn btn-primary" string="Done" special="cancel" data-hotkey="x"/>
+				</footer>
+			</form>
+		</field>
+	</record>
+
+	<record id="dooprint_connect_action" model="ir.actions.server">
+		<field name="name">Connect a Device</field>
+		<field name="model_id" ref="model_dooprint_device"/>
+		<field name="state">code</field>
+		<field name="code">action = model.action_connect_device()</field>
+	</record>
+</odoo>

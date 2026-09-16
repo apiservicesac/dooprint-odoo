@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<record id="dooprint_job_view_list" model="ir.ui.view">
+		<field name="name">dooprint.job.list</field>
+		<field name="model">dooprint.job</field>
+		<field name="arch" type="xml">
+			<list string="Print Jobs" create="0" edit="0" sample="1"
+				decoration-danger="state == 'failed'" decoration-muted="state == 'done'">
+				<header>
+					<button name="action_retry" type="object" string="Retry" icon="fa-repeat"
+						groups="dooprint.group_dooprint_manager"/>
+				</header>
+				<field name="id" string="#"/>
+				<field name="create_date" string="Queued On"/>
+				<field name="name"/>
+				<field name="device_id"/>
+				<field name="printer_id"/>
+				<field name="state" widget="badge"
+					decoration-success="state == 'done'"
+					decoration-warning="state in ['queued', 'sent']"
+					decoration-danger="state == 'failed'"/>
+				<field name="duration" optional="show"/>
+				<field name="attempts" optional="hide"/>
+				<field name="error_message" optional="show"/>
+				<field name="res_model" optional="hide"/>
+			</list>
+		</field>
+	</record>
+
+	<record id="dooprint_job_view_form" model="ir.ui.view">
+		<field name="name">dooprint.job.form</field>
+		<field name="model">dooprint.job</field>
+		<field name="arch" type="xml">
+			<form string="Print Job" create="0" edit="0">
+				<header>
+					<button name="action_retry" type="object" string="Retry" icon="fa-repeat" class="btn-primary"
+						invisible="state not in ['failed', 'sent']" groups="dooprint.group_dooprint_manager"/>
+					<button name="action_open_origin" type="object" string="Open Source" icon="fa-external-link"
+						invisible="not res_model"/>
+					<field name="state" widget="statusbar" statusbar_visible="queued,sent,done"/>
+				</header>
+				<sheet>
+					<div class="oe_title">
+						<h1><field name="name"/></h1>
+					</div>
+					<div class="alert alert-danger" role="alert" invisible="state != 'failed'">
+						<field name="error_message" readonly="1"/>
+					</div>
+					<group>
+						<group string="Destination">
+							<field name="device_id"/>
+							<field name="printer_id"/>
+							<field name="attempts"/>
+						</group>
+						<group string="Timeline">
+							<field name="create_date" string="Queued On"/>
+							<field name="sent_at"/>
+							<field name="done_at"/>
+							<field name="duration"/>
+						</group>
+					</group>
+					<notebook groups="base.group_no_one">
+						<page string="Technical" name="technical">
+							<group>
+								<field name="error_code"/>
+								<field name="res_model"/>
+								<field name="res_id"/>
+							</group>
+							<field name="payload" class="font-monospace"/>
+						</page>
+					</notebook>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record id="dooprint_job_view_search" model="ir.ui.view">
+		<field name="name">dooprint.job.search</field>
+		<field name="model">dooprint.job</field>
+		<field name="arch" type="xml">
+			<search string="Print Jobs">
+				<field name="name"/>
+				<field name="device_id"/>
+				<field name="printer_id"/>
+				<filter string="Pending" name="pending" domain="[('state', 'in', ['queued', 'sent'])]"/>
+				<filter string="Printed" name="done" domain="[('state', '=', 'done')]"/>
+				<filter string="Failed" name="failed" domain="[('state', '=', 'failed')]"/>
+				<separator/>
+				<filter string="Today" name="today" domain="[('create_date', '&gt;=', datetime.datetime.combine(context_today(), datetime.time(0, 0, 0)))]"/>
+				<filter string="Queued On" name="filter_create_date" date="create_date"/>
+				<group>
+					<filter string="Device" name="group_device" context="{'group_by': 'device_id'}"/>
+					<filter string="Printer" name="group_printer" context="{'group_by': 'printer_id'}"/>
+					<filter string="Status" name="group_state" context="{'group_by': 'state'}"/>
+					<filter string="Day" name="group_day" context="{'group_by': 'create_date:day'}"/>
+				</group>
+			</search>
+		</field>
+	</record>
+
+	<record id="dooprint_job_action" model="ir.actions.act_window">
+		<field name="name">Print Jobs</field>
+		<field name="res_model">dooprint.job</field>
+		<field name="view_mode">list,form</field>
+		<field name="context">{'search_default_today': 1}</field>
+		<field name="help" type="html">
+			<p class="o_view_nocontent_smiling_face">No print jobs yet</p>
+			<p>Every print requested by another module goes through here, with its result.</p>
+		</field>
+	</record>
+</odoo>

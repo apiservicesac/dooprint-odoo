@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<record id="res_config_settings_view_form" model="ir.ui.view">
+		<field name="name">res.config.settings.view.form.dooprint.pos</field>
+		<field name="model">res.config.settings</field>
+		<field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
+		<field name="arch" type="xml">
+			<xpath expr="//setting[@id='auto_printing']/div" position="attributes">
+				<attribute name="invisible">not pos_iface_print_auto or not pos_is_posbox and not pos_other_devices and not pos_dooprint_printer_id</attribute>
+			</xpath>
+			<setting id="pos_other_devices" position="before">
+				<setting id="pos_dooprint" string="dooprint Printer"
+					help="Print receipts and open the cash drawer with a printer of a dooprint device">
+					<div class="content-group">
+						<div class="row mt-2">
+							<label string="Printer" for="pos_dooprint_printer_id" class="col-lg-4 o_light_label"/>
+							<field name="pos_dooprint_printer_id" class="col" options="{'no_create': True}"/>
+						</div>
+						<div class="row mt-2">
+							<label string="Delivery" for="pos_dooprint_delivery" class="col-lg-4 o_light_label"/>
+							<field name="pos_dooprint_delivery" class="col" widget="radio"/>
+						</div>
+						<div class="row mt-2" invisible="not pos_dooprint_printer_id">
+							<label string="Link Cashdrawer" for="pos_iface_cashdrawer" class="col-lg-4 o_light_label"/>
+							<field name="pos_iface_cashdrawer" class="col"/>
+						</div>
+						<div class="text-muted small mt-2">The delivery also applies to the preparation printers of type dooprint.</div>
+						<button name="action_dooprint_test" type="object" string="Test" icon="fa-print"
+							class="btn-link px-0 mt-2" invisible="not pos_dooprint_printer_id"/>
+					</div>
+				</setting>
+			</setting>
+		</field>
+	</record>
+</odoo>

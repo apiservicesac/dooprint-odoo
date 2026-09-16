@@ -1,0 +1,9 @@
+__pycache__/
+*.py[cod]
+*.orig
+*.rej
+*.swp
+*~
+.DS_Store
+.idea/
+.vscode/

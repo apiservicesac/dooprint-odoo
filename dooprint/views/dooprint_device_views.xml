@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<record id="dooprint_device_view_kanban" model="ir.ui.view">
+		<field name="name">dooprint.device.view.kanban</field>
+		<field name="model">dooprint.device</field>
+		<field name="arch" type="xml">
+			<kanban create="false" sample="1" class="o_dooprint_device_kanban">
+				<header>
+					<button groups="dooprint.group_dooprint_manager" name="dooprint.dooprint_connect_action" type="action"
+						string="Connect" class="btn-primary o-kanban-button-new" display="always"/>
+				</header>
+				<field name="state"/>
+				<field name="mode"/>
+				<field name="active"/>
+				<field name="printer_count"/>
+				<field name="connected_printer_count"/>
+				<field name="pending_job_count"/>
+				<field name="failed_job_count"/>
+				<field name="last_seen"/>
+				<templates>
+					<t t-name="card" class="p-0">
+						<widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
+						<div class="p-3">
+							<div class="d-flex align-items-start gap-3">
+								<span t-attf-class="d-flex align-items-center justify-content-center rounded-3 flex-shrink-0 #{record.state.raw_value == 'online' ? 'text-bg-success' : record.state.raw_value == 'offline' ? 'text-bg-warning' : 'text-bg-secondary'}"
+									style="width: 44px; height: 44px;">
+									<i class="fa fa-server fa-lg" title="Device"/>
+								</span>
+								<div class="flex-grow-1 min-w-0">
+									<div class="d-flex align-items-center justify-content-between gap-2">
+										<field name="name" class="fw-bold fs-5 text-truncate"/>
+										<field name="state" widget="badge"
+											decoration-success="state == 'online'"
+											decoration-warning="state == 'offline'"
+											decoration-muted="state == 'revoked'"/>
+									</div>
+									<div class="text-muted small font-monospace text-truncate">
+										<field name="address"/>
+									</div>
+								</div>
+							</div>
+
+							<div class="d-flex flex-wrap align-items-center gap-2 mt-3 small">
+								<span t-if="record.mode.raw_value == 'agent'" class="badge rounded-pill text-bg-light border">
+									<i class="fa fa-cloud me-1" title="Agent"/><field name="mode"/>
+								</span>
+								<span t-else="" class="badge rounded-pill text-bg-light border">
+									<i class="fa fa-building-o me-1" title="Local"/><field name="mode"/>
+								</span>
+								<span class="badge rounded-pill text-bg-light border" invisible="not os">
+									<field name="os"/>
+								</span>
+								<span class="badge rounded-pill text-bg-light border" invisible="not version">
+									v<field name="version"/>
+								</span>
+							</div>
+
+							<div class="row g-0 mt-3 pt-2 border-top text-center small">
+								<div class="col" title="Connected printers">
+									<div class="fw-bold fs-6">
+										<t t-esc="record.connected_printer_count.value"/>/<t t-esc="record.printer_count.value"/>
+									</div>
+									<div class="text-muted"><i class="fa fa-print me-1" title="Printers"/>Printers</div>
+								</div>
+								<div class="col border-start" title="Pending jobs">
+									<div t-attf-class="fw-bold fs-6 #{record.pending_job_count.raw_value ? 'text-warning' : ''}">
+										<t t-esc="record.pending_job_count.value"/>
+									</div>
+									<div class="text-muted"><i class="fa fa-hourglass-half me-1" title="Pending"/>Pending</div>
+								</div>
+								<div class="col border-start" title="Failed jobs in the last 24 hours">
+									<div t-attf-class="fw-bold fs-6 #{record.failed_job_count.raw_value ? 'text-danger' : ''}">
+										<t t-esc="record.failed_job_count.value"/>
+									</div>
+									<div class="text-muted"><i class="fa fa-exclamation-triangle me-1" title="Failed"/>Failed</div>
+								</div>
+							</div>
+
+							<div class="text-muted small mt-2" invisible="not last_seen">
+								<i class="fa fa-heartbeat me-1" title="Last seen"/>Last seen <field name="last_seen" widget="datetime"/>
+							</div>
+						</div>
+					</t>
+				</templates>
+			</kanban>
+		</field>
+	</record>
+
+	<record id="dooprint_device_view_list" model="ir.ui.view">
+		<field name="name">dooprint.device.view.list</field>
+		<field name="model">dooprint.device</field>
+		<field name="arch" type="xml">
+			<list create="false" sample="1">
+				<header>
+					<button groups="dooprint.group_dooprint_manager" name="dooprint.dooprint_connect_action" type="action"
+						string="Connect" class="btn-primary" display="always"/>
+				</header>
+				<field name="name"/>
+				<field name="state" widget="badge"
+					decoration-success="state == 'online'"
+					decoration-warning="state == 'offline'"
+					decoration-muted="state == 'revoked'"/>
+				<field name="mode" widget="badge"/>
+				<field name="address" optional="show"/>
+				<field name="connected_printer_count" string="Connected"/>
+				<field name="printer_count" string="Printers"/>
+				<field name="pending_job_count" optional="show"/>
+				<field name="failed_job_count" optional="show"/>
+				<field name="last_seen" optional="show"/>
+				<field name="os" optional="hide"/>
+				<field name="version" optional="hide"/>
+				<field name="identifier" optional="hide"/>
+				<field name="company_id" groups="base.group_multi_company" optional="hide"/>
+			</list>
+		</field>
+	</record>
+
+	<record id="dooprint_device_view_form" model="ir.ui.view">
+		<field name="name">dooprint.device.view.form</field>
+		<field name="model">dooprint.device</field>
+		<field name="arch" type="xml">
+			<form create="false">
+				<header>
+					<button name="action_open_homepage" type="object" string="Open Device" icon="fa-external-link"
+						class="btn-secondary" invisible="not address"/>
+					<button name="action_refresh_printers" type="object" string="Rescan Printers" icon="fa-refresh"
+						class="btn-secondary" invisible="mode != 'agent' or state == 'revoked'"
+						groups="dooprint.group_dooprint_manager"/>
+					<button name="action_restart" type="object" string="Restart Service" icon="fa-power-off"
+						class="btn-secondary" invisible="mode != 'agent' or state == 'revoked'"
+						groups="dooprint.group_dooprint_manager"
+						confirm="The device will restart its service. Continue?"/>
+					<button name="action_revoke" type="object" string="Unpair" icon="fa-chain-broken"
+						class="btn-secondary" invisible="state == 'revoked'"
+						groups="dooprint.group_dooprint_manager"
+						confirm="The device will stop receiving jobs until it is paired again. Continue?"/>
+					<field name="state" widget="statusbar"/>
+				</header>
+				<sheet>
+					<div class="oe_button_box" name="button_box">
+						<button name="action_open_printers" type="object" class="oe_stat_button" icon="fa-print">
+							<div class="o_field_widget o_stat_info">
+								<span class="o_stat_value">
+									<field name="connected_printer_count" nolabel="1"/>/<field name="printer_count" nolabel="1"/>
+								</span>
+								<span class="o_stat_text">Printers</span>
+							</div>
+						</button>
+						<button name="action_open_jobs" type="object" class="oe_stat_button" icon="fa-hourglass-half">
+							<field name="pending_job_count" widget="statinfo" string="Pending"/>
+						</button>
+						<button name="action_open_failed_jobs" type="object" class="oe_stat_button" icon="fa-exclamation-triangle">
+							<field name="failed_job_count" widget="statinfo" string="Failed (24 h)"/>
+						</button>
+						<button name="action_open_commands" type="object" class="oe_stat_button" icon="fa-terminal"
+							groups="base.group_no_one">
+							<field name="command_count" widget="statinfo" string="Commands"/>
+						</button>
+					</div>
+					<widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
+					<widget name="dooprint_device_ping"/>
+					<field name="active" invisible="1"/>
+					<div class="oe_title">
+						<label for="name"/>
+						<h1><field name="name" placeholder="e.g. Canteen PC"/></h1>
+						<div class="d-flex gap-2">
+							<field name="mode" widget="badge"/>
+							<field name="os" widget="badge" invisible="not os"/>
+						</div>
+					</div>
+					<group>
+						<group string="Connection">
+							<field name="address" widget="CopyClipboardChar"/>
+							<field name="last_seen"/>
+							<field name="paired_at"/>
+						</group>
+						<group string="Device">
+							<field name="version"/>
+							<field name="identifier"/>
+							<field name="company_id" groups="base.group_multi_company" options="{'no_create': True}" placeholder="Visible to all"/>
+						</group>
+					</group>
+					<notebook>
+						<page string="Printers" name="printers">
+							<field name="printer_ids" readonly="1">
+								<list default_order="connection, name" decoration-muted="connected_status == 'disconnected'">
+									<field name="name"/>
+									<field name="connection" widget="badge"/>
+									<field name="printer_type"/>
+									<field name="ip_address"/>
+									<field name="last_job_date"/>
+									<field name="connected_status" widget="badge"
+										decoration-success="connected_status == 'connected'"
+										decoration-danger="connected_status == 'disconnected'"/>
+									<button name="action_test_print" type="object" string="Test" icon="fa-print"
+										groups="dooprint.group_dooprint_manager"/>
+								</list>
+							</field>
+						</page>
+						<page string="Recent Jobs" name="jobs">
+							<field name="job_ids" readonly="1" limit="20">
+								<list>
+									<field name="create_date" string="Queued On"/>
+									<field name="name"/>
+									<field name="printer_id"/>
+									<field name="state" widget="badge"
+										decoration-success="state == 'done'"
+										decoration-warning="state in ['queued', 'sent']"
+										decoration-danger="state == 'failed'"/>
+									<field name="duration"/>
+									<field name="error_message"/>
+								</list>
+							</field>
+						</page>
+					</notebook>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record id="dooprint_device_view_search" model="ir.ui.view">
+		<field name="name">dooprint.device.view.search</field>
+		<field name="model">dooprint.device</field>
+		<field name="arch" type="xml">
+			<search string="Devices">
+				<field name="name"/>
+				<field name="address"/>
+				<field name="identifier"/>
+				<filter string="Online" name="online" domain="[('state', '=', 'online')]"/>
+				<filter string="Offline" name="offline" domain="[('state', '=', 'offline')]"/>
+				<filter string="Unpaired" name="revoked" domain="[('state', '=', 'revoked')]"/>
+				<separator/>
+				<filter string="Agent" name="agent" domain="[('mode', '=', 'agent')]"/>
+				<filter string="Local" name="local" domain="[('mode', '=', 'local')]"/>
+				<separator/>
+				<filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+				<group>
+					<filter string="Mode" name="group_mode" context="{'group_by': 'mode'}"/>
+					<filter string="Operating System" name="group_os" context="{'group_by': 'os'}"/>
+				</group>
+			</search>
+		</field>
+	</record>
+
+	<record id="dooprint_device_action" model="ir.actions.act_window">
+		<field name="name">Devices</field>
+		<field name="path">dooprint</field>
+		<field name="res_model">dooprint.device</field>
+		<field name="view_mode">kanban,list,form</field>
+		<field name="help" type="html">
+			<p class="o_view_nocontent_smiling_face">No device connected yet</p>
+			<p>Install dooprint on a computer next to the printers and click <b>Connect</b>.</p>
+		</field>
+	</record>
+</odoo>

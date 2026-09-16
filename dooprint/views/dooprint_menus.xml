@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<menuitem id="dooprint_menu_root" name="dooprint" web_icon="dooprint,static/description/icon.png"
+		groups="group_dooprint_user" sequence="265"/>
+
+	<menuitem id="dooprint_device_menu_action" action="dooprint_device_action" parent="dooprint_menu_root" sequence="1"/>
+	<menuitem id="dooprint_printer_menu_action" action="dooprint_printer_action" parent="dooprint_menu_root" sequence="2"/>
+	<menuitem id="dooprint_job_menu_action" action="dooprint_job_action" parent="dooprint_menu_root" sequence="3"/>
+
+	<menuitem id="dooprint_menu_config" name="Configuration" parent="dooprint_menu_root" sequence="4"
+		groups="group_dooprint_manager"/>
+	<menuitem id="dooprint_settings_menu_action" action="dooprint_settings_action" parent="dooprint_menu_config" sequence="1"/>
+	<menuitem id="dooprint_command_menu_action" action="dooprint_command_action" parent="dooprint_menu_config" sequence="2"/>
+</odoo>

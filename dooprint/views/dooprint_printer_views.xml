@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<record id="dooprint_printer_view_kanban" model="ir.ui.view">
+		<field name="name">dooprint.printer.view.kanban</field>
+		<field name="model">dooprint.printer</field>
+		<field name="arch" type="xml">
+			<kanban create="false" group_create="false" sample="1" default_group_by="device_id" default_order="name">
+				<field name="connection"/>
+				<field name="connected_status"/>
+				<field name="last_job_state"/>
+				<field name="last_job_date"/>
+				<field name="job_count"/>
+				<templates>
+					<t t-name="card" class="row g-0 p-0">
+						<aside class="col-3 d-flex align-items-center justify-content-center border-end p-2">
+							<img src="/dooprint/static/src/img/printer.svg" alt="Printer" class="w-75"/>
+						</aside>
+						<main class="col p-2">
+							<div class="d-flex align-items-start justify-content-between gap-2">
+								<field name="name" class="fw-bold text-truncate"/>
+								<field name="connected_status" widget="badge"
+									decoration-success="connected_status == 'connected'"
+									decoration-danger="connected_status == 'disconnected'"/>
+							</div>
+							<div class="d-flex align-items-center gap-2 small text-muted mt-1">
+								<i t-if="record.connection.raw_value == 'network'" class="fa fa-wifi fa-fw" title="Network"/>
+								<i t-else="" class="fa fa-usb fa-fw" title="USB"/>
+								<field name="connection"/>
+								<span class="font-monospace" invisible="not ip_address">· <field name="ip_address"/></span>
+							</div>
+							<div class="d-flex align-items-center gap-2 small text-muted">
+								<i class="fa fa-server fa-fw" title="Device"/>
+								<field name="device_id" class="text-truncate" readonly="1"/>
+							</div>
+							<div class="d-flex align-items-center justify-content-between small mt-2 pt-2 border-top">
+								<span class="text-muted">
+									<i class="fa fa-file-text-o me-1" title="Jobs"/><t t-esc="record.job_count.value"/>
+									<span invisible="not last_job_date"> · <field name="last_job_date" widget="datetime"/></span>
+								</span>
+								<field name="last_job_state" widget="badge" invisible="not last_job_state"
+									decoration-success="last_job_state == 'done'"
+									decoration-warning="last_job_state in ['queued', 'sent']"
+									decoration-danger="last_job_state == 'failed'"/>
+							</div>
+						</main>
+					</t>
+				</templates>
+			</kanban>
+		</field>
+	</record>
+
+	<record id="dooprint_printer_view_list" model="ir.ui.view">
+		<field name="name">dooprint.printer.view.list</field>
+		<field name="model">dooprint.printer</field>
+		<field name="arch" type="xml">
+			<list create="false" sample="1" decoration-muted="connected_status == 'disconnected'">
+				<header>
+					<button name="action_test_print" type="object" string="Test" icon="fa-print"
+						groups="dooprint.group_dooprint_manager"/>
+				</header>
+				<field name="name"/>
+				<field name="device_id"/>
+				<field name="connection" widget="badge"/>
+				<field name="ip_address" optional="show"/>
+				<field name="printer_type" optional="show"/>
+				<field name="job_count" string="Jobs" optional="show"/>
+				<field name="last_job_state" widget="badge" optional="show"
+					decoration-success="last_job_state == 'done'"
+					decoration-warning="last_job_state in ['queued', 'sent']"
+					decoration-danger="last_job_state == 'failed'"/>
+				<field name="connected_status" widget="badge"
+					decoration-success="connected_status == 'connected'"
+					decoration-danger="connected_status == 'disconnected'"/>
+				<field name="identifier" optional="hide"/>
+			</list>
+		</field>
+	</record>
+
+	<record id="dooprint_printer_view_form" model="ir.ui.view">
+		<field name="name">dooprint.printer.view.form</field>
+		<field name="model">dooprint.printer</field>
+		<field name="arch" type="xml">
+			<form create="false">
+				<header>
+					<button name="action_test_print" type="object" string="Test" icon="fa-print" class="btn-primary"
+						groups="dooprint.group_dooprint_manager"/>
+					<field name="connected_status" widget="statusbar"/>
+				</header>
+				<sheet>
+					<div class="oe_button_box" name="button_box">
+						<button name="action_open_jobs" type="object" class="oe_stat_button" icon="fa-file-text-o">
+							<field name="job_count" widget="statinfo" string="Jobs"/>
+						</button>
+					</div>
+					<widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
+					<field name="active" invisible="1"/>
+					<div class="d-flex align-items-center gap-3 mb-3">
+						<img src="/dooprint/static/src/img/printer.svg" alt="Printer" style="width: 64px;"/>
+						<div class="oe_title mb-0">
+							<h1 class="mb-1"><field name="name"/></h1>
+							<div class="d-flex gap-2">
+								<field name="connection" widget="badge"/>
+								<field name="printer_type" widget="badge"/>
+							</div>
+						</div>
+					</div>
+					<group>
+						<group string="Printer">
+							<field name="device_id" readonly="1"/>
+							<field name="device_state" widget="badge"
+								decoration-success="device_state == 'online'"
+								decoration-warning="device_state == 'offline'"
+								decoration-muted="device_state == 'revoked'"/>
+							<field name="ip_address" invisible="connection != 'network'"/>
+						</group>
+						<group string="Activity">
+							<field name="last_job_date"/>
+							<field name="last_job_state" widget="badge" invisible="not last_job_state"
+								decoration-success="last_job_state == 'done'"
+								decoration-warning="last_job_state in ['queued', 'sent']"
+								decoration-danger="last_job_state == 'failed'"/>
+						</group>
+						<group string="Technical" groups="base.group_no_one">
+							<field name="identifier"/>
+							<field name="epos_url" widget="CopyClipboardChar"/>
+						</group>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record id="dooprint_printer_view_search" model="ir.ui.view">
+		<field name="name">dooprint.printer.view.search</field>
+		<field name="model">dooprint.printer</field>
+		<field name="arch" type="xml">
+			<search string="Printers">
+				<field name="name"/>
+				<field name="device_id"/>
+				<field name="ip_address"/>
+				<filter string="Connected" name="connected" domain="[('connected_status', '=', 'connected')]"/>
+				<filter string="Disconnected" name="disconnected" domain="[('connected_status', '=', 'disconnected')]"/>
+				<separator/>
+				<filter string="Network" name="network" domain="[('connection', '=', 'network')]"/>
+				<filter string="USB" name="usb" domain="[('connection', '=', 'usb')]"/>
+				<separator/>
+				<filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+				<group>
+					<filter string="Device" name="group_by_device_id" context="{'group_by': 'device_id'}"/>
+					<filter string="Connection" name="group_by_connection" context="{'group_by': 'connection'}"/>
+				</group>
+			</search>
+		</field>
+	</record>
+
+	<record id="dooprint_printer_action" model="ir.actions.act_window">
+		<field name="name">Printers</field>
+		<field name="res_model">dooprint.printer</field>
+		<field name="view_mode">kanban,list,form</field>
+		<field name="context">{'search_default_group_by_device_id': 1}</field>
+		<field name="help" type="html">
+			<p class="o_view_nocontent_empty_folder">No printers yet</p>
+			<p>They show up on their own when a connected device reports the printers it finds.</p>
+		</field>
+	</record>
+</odoo>

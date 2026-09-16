@@ -1,0 +1,183 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* dooprint_pos
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0-20260817\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-16 16:11+0000\n"
+"PO-Revision-Date: 2026-09-16 16:11+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: dooprint_pos
+#: model:ir.model,name:dooprint_pos.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: dooprint_pos
+#: model_terms:ir.ui.view,arch_db:dooprint_pos.res_config_settings_view_form
+msgid "Delivery"
+msgstr ""
+
+#. module: dooprint_pos
+#: model:ir.model.fields,field_description:dooprint_pos.field_pos_config__display_name
+#: model:ir.model.fields,field_description:dooprint_pos.field_pos_printer__display_name
+#: model:ir.model.fields,field_description:dooprint_pos.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: dooprint_pos
+#: model:ir.model.fields.selection,name:dooprint_pos.selection__pos_config__dooprint_delivery__browser
+msgid "From the browser"
+msgstr ""
+
+#. module: dooprint_pos
+#: model:ir.model.fields,field_description:dooprint_pos.field_pos_config__id
+#: model:ir.model.fields,field_description:dooprint_pos.field_pos_printer__id
+#: model:ir.model.fields,field_description:dooprint_pos.field_res_config_settings__id
+msgid "ID"
+msgstr ""
+
+#. module: dooprint_pos
+#: model_terms:ir.ui.view,arch_db:dooprint_pos.res_config_settings_view_form
+msgid "Link Cashdrawer"
+msgstr ""
+
+#. module: dooprint_pos
+#. odoo-javascript
+#: code:addons/dooprint_pos/static/src/app/utils/printer/dooprint_printer.js:0
+msgid "Odoo could not queue the ticket. Check your connection."
+msgstr ""
+
+#. module: dooprint_pos
+#. odoo-python
+#: code:addons/dooprint_pos/models/pos_config.py:0
+msgid "POS %s"
+msgstr ""
+
+#. module: dooprint_pos
+#: model:ir.model,name:dooprint_pos.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr ""
+
+#. module: dooprint_pos
+#: model:ir.model,name:dooprint_pos.model_pos_printer
+msgid "Point of Sale Printer"
+msgstr ""
+
+#. module: dooprint_pos
+#: model_terms:ir.ui.view,arch_db:dooprint_pos.res_config_settings_view_form
+msgid ""
+"Print receipts and open the cash drawer with a printer of a dooprint device"
+msgstr ""
+
+#. module: dooprint_pos
+#: model_terms:ir.ui.view,arch_db:dooprint_pos.res_config_settings_view_form
+msgid "Printer"
+msgstr ""
+
+#. module: dooprint_pos
+#: model:ir.model.fields,field_description:dooprint_pos.field_pos_printer__printer_type
+msgid "Printer Type"
+msgstr ""
+
+#. module: dooprint_pos
+#: model:ir.model.fields,help:dooprint_pos.field_pos_config__dooprint_printer_id
+#: model:ir.model.fields,help:dooprint_pos.field_res_config_settings__pos_dooprint_printer_id
+msgid ""
+"Receipt printer of a dooprint device. It is also the one that opens the cash"
+" drawer."
+msgstr ""
+
+#. module: dooprint_pos
+#: model_terms:ir.ui.view,arch_db:dooprint_pos.pos_printer_view_form
+#: model_terms:ir.ui.view,arch_db:dooprint_pos.res_config_settings_view_form
+msgid "Test"
+msgstr ""
+
+#. module: dooprint_pos
+#. odoo-python
+#: code:addons/dooprint_pos/models/pos_printer.py:0
+#: code:addons/dooprint_pos/models/res_config_settings.py:0
+msgid "Test page queued."
+msgstr ""
+
+#. module: dooprint_pos
+#: model_terms:ir.ui.view,arch_db:dooprint_pos.res_config_settings_view_form
+msgid ""
+"The delivery also applies to the preparation printers of type dooprint."
+msgstr ""
+
+#. module: dooprint_pos
+#. odoo-javascript
+#: code:addons/dooprint_pos/static/src/app/utils/printer/dooprint_printer.js:0
+msgid ""
+"The dooprint device at %s cannot be reached. Check that this browser is on "
+"the same network and allows Local Network Access."
+msgstr ""
+
+#. module: dooprint_pos
+#. odoo-javascript
+#: code:addons/dooprint_pos/static/src/app/utils/printer/dooprint_printer.js:0
+msgid "The dooprint device has not reported its address."
+msgstr ""
+
+#. module: dooprint_pos
+#. odoo-python
+#: code:addons/dooprint_pos/controllers/main.py:0
+msgid "This point of sale does not exist."
+msgstr ""
+
+#. module: dooprint_pos
+#. odoo-python
+#: code:addons/dooprint_pos/models/pos_config.py:0
+msgid "This printer is not configured on this point of sale."
+msgstr ""
+
+#. module: dooprint_pos
+#: model:ir.model.fields.selection,name:dooprint_pos.selection__pos_config__dooprint_delivery__server
+msgid "Through Odoo"
+msgstr ""
+
+#. module: dooprint_pos
+#: model:ir.model.fields,help:dooprint_pos.field_pos_config__dooprint_delivery
+#: model:ir.model.fields,help:dooprint_pos.field_res_config_settings__pos_dooprint_delivery
+msgid ""
+"Through Odoo: the POS sends the tickets to Odoo, which queues them for the device. Works from any network.\n"
+"From the browser: the POS sends them straight to the device. The browser must be on the device network and allow Local Network Access."
+msgstr ""
+
+#. module: dooprint_pos
+#: model:ir.model.fields.selection,name:dooprint_pos.selection__pos_printer__printer_type__dooprint
+msgid "Use a dooprint printer"
+msgstr ""
+
+#. module: dooprint_pos
+#: model:ir.model.fields,field_description:dooprint_pos.field_pos_config__dooprint_delivery
+#: model:ir.model.fields,field_description:dooprint_pos.field_res_config_settings__pos_dooprint_delivery
+msgid "dooprint Delivery"
+msgstr ""
+
+#. module: dooprint_pos
+#: model:ir.model.fields,field_description:dooprint_pos.field_pos_printer__dooprint_printer_id
+#: model_terms:ir.ui.view,arch_db:dooprint_pos.res_config_settings_view_form
+msgid "dooprint Printer"
+msgstr ""
+
+#. module: dooprint_pos
+#: model:ir.model.fields,field_description:dooprint_pos.field_pos_config__dooprint_url
+#: model:ir.model.fields,field_description:dooprint_pos.field_pos_printer__dooprint_url
+msgid "dooprint Printer Address"
+msgstr ""
+
+#. module: dooprint_pos
+#: model:ir.model.fields,field_description:dooprint_pos.field_pos_config__dooprint_printer_id
+#: model:ir.model.fields,field_description:dooprint_pos.field_res_config_settings__pos_dooprint_printer_id
+msgid "dooprint Receipt Printer"
+msgstr ""
