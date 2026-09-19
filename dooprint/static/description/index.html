@@ -1,0 +1,95 @@
+<section style="padding:32px 0; text-align:center; background:#FFF7F2;">
+    <h1 style="margin:0 0 12px; font-size:38px; color:#1F2937;">Dooprint</h1>
+    <p style="margin:0 auto; max-width:680px; font-size:19px; color:#6B7280;">
+        Print from Odoo on the printers of a shop, a warehouse or a clinic, even when Odoo runs on a
+        remote server and nobody has a browser open.
+    </p>
+</section>
+
+<section style="padding:32px 0;">
+    <h2 style="font-size:26px; color:#1F2937;">The problem it solves</h2>
+    <p style="font-size:16px; color:#4B5563; line-height:1.6;">
+        Printing a receipt is one of the simplest things an ERP does. It stops being simple when the
+        server is in the cloud and the printer is in the shop: the usual answers are opening ports,
+        building tunnels, or leaving a browser open on a computer so a piece of paper comes out.
+    </p>
+    <p style="font-size:16px; color:#4B5563; line-height:1.6;">
+        Dooprint puts a small print service on a computer next to the printers. Odoo queues the job,
+        the service prints it and reports back. No open ports, no tunnels, no browser required.
+    </p>
+</section>
+
+<section style="padding:32px 0; background:#F9FAFB;">
+    <h2 style="font-size:26px; color:#1F2937;">How a job reaches the printer</h2>
+    <table style="width:100%; border-collapse:collapse; font-size:15px; color:#4B5563;">
+        <tr style="background:#F28A54; color:#FFFFFF;">
+            <th style="padding:10px; text-align:left;">Mode</th>
+            <th style="padding:10px; text-align:left;">When to use it</th>
+            <th style="padding:10px; text-align:left;">How it works</th>
+        </tr>
+        <tr>
+            <td style="padding:10px; border-bottom:1px solid #E5E7EB;"><b>Agent</b></td>
+            <td style="padding:10px; border-bottom:1px solid #E5E7EB;">Odoo runs outside the printer network, on a cloud server or a VPS.</td>
+            <td style="padding:10px; border-bottom:1px solid #E5E7EB;">The device keeps a connection to Odoo open. When a job is queued, Odoo wakes it up and the device picks it up right away.</td>
+        </tr>
+        <tr>
+            <td style="padding:10px; border-bottom:1px solid #E5E7EB;"><b>Local</b></td>
+            <td style="padding:10px; border-bottom:1px solid #E5E7EB;">Odoo runs on the same network as the printers.</td>
+            <td style="padding:10px; border-bottom:1px solid #E5E7EB;">Odoo sends each job straight to the device.</td>
+        </tr>
+    </table>
+</section>
+
+<section style="padding:32px 0;">
+    <h2 style="font-size:26px; color:#1F2937;">What you get</h2>
+    <ul style="font-size:16px; color:#4B5563; line-height:1.8;">
+        <li><b>Pairing with a one-time token.</b> The device registers itself and reports the USB and network printers it finds, so nobody types identifiers by hand.</li>
+        <li><b>A job queue you can see.</b> Every ticket has a state, a printer and an error message when something goes wrong.</li>
+        <li><b>Jobs are never printed twice.</b> They are taken with a database lock, so two Odoo workers never hand the same ticket to the device.</li>
+        <li><b>Device status at a glance.</b> A paired device reports every 30 seconds and shows as offline after two minutes of silence. Opening its form pings it.</li>
+        <li><b>Remote HTTP requests.</b> A device can reach equipment on its own network that Odoo cannot see, and return the answer to Odoo.</li>
+    </ul>
+</section>
+
+<section style="padding:32px 0; background:#F9FAFB;">
+    <h2 style="font-size:26px; color:#1F2937;">For developers</h2>
+    <p style="font-size:16px; color:#4B5563; line-height:1.6;">
+        This module prints nothing on its own: other modules queue their jobs through it and get the
+        result back.
+    </p>
+    <pre style="background:#1F2937; color:#F9FAFB; padding:16px; border-radius:6px; font-size:14px; overflow:auto;">
+job = self.env['dooprint.job']._enqueue(printer, payload, origin=record)</pre>
+    <p style="font-size:16px; color:#4B5563; line-height:1.6;">
+        The payload is an ePOS-Print request, or ZPL for label printers. A QWeb template can be
+        turned into a printable image, so a ticket looks the same on any printer regardless of its
+        code page:
+    </p>
+    <pre style="background:#1F2937; color:#F9FAFB; padding:16px; border-radius:6px; font-size:14px; overflow:auto;">
+payload = self.env['dooprint.render'].epos_from_template('my_module.ticket', values)</pre>
+    <p style="font-size:16px; color:#4B5563; line-height:1.6;">
+        When the origin record defines <code>_dooprint_job_done(job)</code>, it is called every time
+        the job changes state.
+    </p>
+</section>
+
+<section style="padding:32px 0;">
+    <h2 style="font-size:26px; color:#1F2937;">Getting started</h2>
+    <ol style="font-size:16px; color:#4B5563; line-height:1.8;">
+        <li>Install this module.</li>
+        <li>Install the dooprint service on a computer next to the printers.</li>
+        <li>Open <b>Dooprint &rsaquo; Devices</b>, click <b>Connect</b> and paste the token into the device.</li>
+        <li>The device reports its printers. Send a test page from any of them.</li>
+    </ol>
+    <p style="font-size:15px; color:#6B7280;">
+        Requires Odoo 20. The print service runs on Windows and Linux.
+    </p>
+</section>
+
+<section style="padding:32px 0; background:#FFF7F2; text-align:center;">
+    <h2 style="font-size:24px; color:#1F2937;">Support</h2>
+    <p style="font-size:16px; color:#4B5563;">
+        Written and maintained by API SERVICE S.A.C.<br/>
+        Questions and bug reports: <a href="mailto:info@apiservicesac.com" style="color:#F28A54;">info@apiservicesac.com</a>
+    </p>
+    <p style="font-size:14px; color:#9CA3AF;">Licensed under AGPL-3.</p>
+</section>

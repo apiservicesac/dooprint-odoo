@@ -1,0 +1,77 @@
+<section style="padding:32px 0; text-align:center; background:#FFF7F2;">
+    <h1 style="margin:0 0 12px; font-size:38px; color:#1F2937;">Dooprint for Point of Sale</h1>
+    <p style="margin:0 auto; max-width:680px; font-size:19px; color:#6B7280;">
+        Receipts, kitchen tickets and the cash drawer of your Point of Sale, printed through a
+        dooprint device — with or without the browser.
+    </p>
+</section>
+
+<section style="padding:32px 0;">
+    <h2 style="font-size:26px; color:#1F2937;">Why it exists</h2>
+    <p style="font-size:16px; color:#4B5563; line-height:1.6;">
+        The official way to reach a receipt printer from the Point of Sale is the IoT Box, and that
+        comes with Enterprise. Anyone running Odoo Community ends up opening ports, building tunnels
+        or leaving a browser open so a ticket comes out.
+    </p>
+    <p style="font-size:16px; color:#4B5563; line-height:1.6;">
+        This module lets the Point of Sale print on the printers of a dooprint device, which runs on
+        an ordinary computer next to them.
+    </p>
+</section>
+
+<section style="padding:32px 0; background:#F9FAFB;">
+    <h2 style="font-size:26px; color:#1F2937;">Two ways to deliver a ticket</h2>
+    <table style="width:100%; border-collapse:collapse; font-size:15px; color:#4B5563;">
+        <tr style="background:#F28A54; color:#FFFFFF;">
+            <th style="padding:10px; text-align:left;">Delivery</th>
+            <th style="padding:10px; text-align:left;">What happens</th>
+            <th style="padding:10px; text-align:left;">Good for</th>
+        </tr>
+        <tr>
+            <td style="padding:10px; border-bottom:1px solid #E5E7EB;"><b>Through Odoo</b></td>
+            <td style="padding:10px; border-bottom:1px solid #E5E7EB;">The Point of Sale sends the rendered ticket to Odoo, which queues it for the device.</td>
+            <td style="padding:10px; border-bottom:1px solid #E5E7EB;">Any network. Odoo in the cloud, the till on a tablet outside the shop network.</td>
+        </tr>
+        <tr>
+            <td style="padding:10px; border-bottom:1px solid #E5E7EB;"><b>From the browser</b></td>
+            <td style="padding:10px; border-bottom:1px solid #E5E7EB;">The Point of Sale sends the ticket straight to the device over the local network, the same way Odoo talks to an Epson ePOS printer.</td>
+            <td style="padding:10px; border-bottom:1px solid #E5E7EB;">The till is on the printer network and you want the shortest path.</td>
+        </tr>
+    </table>
+    <p style="font-size:15px; color:#6B7280;">
+        Each printer chooses its own delivery, so one point of sale can mix both.
+    </p>
+</section>
+
+<section style="padding:32px 0;">
+    <h2 style="font-size:26px; color:#1F2937;">What you get</h2>
+    <ul style="font-size:16px; color:#4B5563; line-height:1.8;">
+        <li><b>Receipt printers.</b> A dooprint printer is just another Point of Sale printer, picked the same way as any other.</li>
+        <li><b>Preparation printers.</b> Kitchen and bar tickets go to their own dooprint printers.</li>
+        <li><b>Cash drawer.</b> Odoo's own <i>Link Cashdrawer</i> works on a dooprint printer, with no extra setting.</li>
+        <li><b>A test button.</b> Send a test page from the printer form before the first sale.</li>
+        <li><b>Clear errors.</b> When a printer cannot be reached, the Point of Sale says so instead of failing silently.</li>
+    </ul>
+</section>
+
+<section style="padding:32px 0; background:#F9FAFB;">
+    <h2 style="font-size:26px; color:#1F2937;">Getting started</h2>
+    <ol style="font-size:16px; color:#4B5563; line-height:1.8;">
+        <li>Install this module. It brings <b>Dooprint</b> with it.</li>
+        <li>Pair the device and let it report its printers.</li>
+        <li>In <b>Point of Sale &rsaquo; Configuration &rsaquo; Printers</b>, create a printer of type <b>Use a dooprint printer</b> and choose how its tickets travel.</li>
+        <li>Pick it as the receipt printer of the point of sale, or as a preparation printer.</li>
+    </ol>
+    <p style="font-size:15px; color:#6B7280;">
+        Requires Odoo 20 and the Point of Sale application.
+    </p>
+</section>
+
+<section style="padding:32px 0; background:#FFF7F2; text-align:center;">
+    <h2 style="font-size:24px; color:#1F2937;">Support</h2>
+    <p style="font-size:16px; color:#4B5563;">
+        Written and maintained by API SERVICE S.A.C.<br/>
+        Questions and bug reports: <a href="mailto:info@apiservicesac.com" style="color:#F28A54;">info@apiservicesac.com</a>
+    </p>
+    <p style="font-size:14px; color:#9CA3AF;">Licensed under AGPL-3.</p>
+</section>
