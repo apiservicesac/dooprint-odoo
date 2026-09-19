@@ -1,6 +1,6 @@
 # dooprint for Odoo
 
-<a href="https://apiservicesac.com"><img src="https://apiservicesac.com/logo-api-service-sac.png" alt="API SERVICE S.A.C." height="48" align="right"></a>
+<a href="https://apiservicesac.com"><img src="dooprint/static/description/logo-api-service-sac.png" alt="API SERVICE S.A.C." height="48" align="right"></a>
 
 Built and maintained by **[API SERVICE S.A.C.](https://apiservicesac.com)** · Lima, Perú
 
