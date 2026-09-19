@@ -4,11 +4,21 @@ Odoo 19 modules for [dooprint](https://github.com/apiservicesac/dooprint), the p
 runs on a computer next to the printers. With them Odoo prints on USB and network receipt printers,
 even when Odoo runs on a remote server and nobody has a browser open.
 
+This is the `19.0` branch. The modules for Odoo 20 live on the `20.0` branch.
+
 | Module | Depends on | What it does |
 |---|---|---|
 | `dooprint` | `base_setup`, `bus` | Devices, printers, the print job queue and remote commands. Other modules print through it. |
 | `dooprint_pos` | `point_of_sale`, `dooprint` | Receipts, cash drawer and preparation printers of the Point of Sale. |
 | `dooprint_pos_self_order` | `dooprint_pos`, `pos_self_order` | Kiosk and mobile self orders. Installs itself when both are present. |
+
+## Status on Odoo 19
+
+| Module | Version | Ready to use |
+|---|---|---|
+| `dooprint` | `19.0.1.0.0` | **Yes.** |
+| `dooprint_pos` | `19.0.1.0.0` | **Yes.** |
+| `dooprint_pos_self_order` | `19.0.1.0.0` | **Yes.** |
 
 ## How a job reaches the printer
 
@@ -86,4 +96,4 @@ odoo i18n export -c odoo.conf -d <database> -o dooprint_pos/i18n/dooprint_pos.po
 
 ## License
 
-OPL-1
+AGPL-3. See [LICENSE](LICENSE).

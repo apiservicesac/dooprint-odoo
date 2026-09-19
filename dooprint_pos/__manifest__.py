@@ -1,5 +1,5 @@
 {
-    'name': "Dooprint for Point of Sale",
+    'name': "Dooprint for POS",
     'summary': "Print POS receipts and order tickets on dooprint printers, with or without the browser",
 
     'description': """
@@ -15,8 +15,11 @@ Each point of sale chooses how its tickets reach the printer:
     """,
 
     'author': "API SERVICE S.A.C",
+    'website': "https://dooprint.apiservicesac.com",
+    'support': "info@apiservicesac.com",
+    'images': ['static/description/banner.png'],
     'category': 'Sales/Point of Sale',
-    'version': '1.0.0',
+    'version': '19.0.1.0.0',
 
     'depends': [
         'point_of_sale',
@@ -37,5 +40,5 @@ Each point of sale chooses how its tickets reach the printer:
         ],
     },
     'installable': True,
-    'license': 'OPL-1',
+    'license': 'AGPL-3',
 }

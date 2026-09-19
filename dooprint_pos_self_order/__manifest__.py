@@ -1,5 +1,5 @@
 {
-    'name': "Dooprint for POS Self Order",
+    'name': "Dooprint POS Self Order",
     'summary': "Print kiosk and mobile self orders on dooprint printers",
 
     'description': """
@@ -11,8 +11,11 @@ customer is not on the printer network.
     """,
 
     'author': "API SERVICE S.A.C",
+    'website': "https://dooprint.apiservicesac.com",
+    'support': "info@apiservicesac.com",
+    'images': ['static/description/banner.png'],
     'category': 'Sales/Point of Sale',
-    'version': '1.0.0',
+    'version': '19.0.1.0.0',
 
     'depends': [
         'dooprint_pos',
@@ -27,5 +30,5 @@ customer is not on the printer network.
         ],
     },
     'installable': True,
-    'license': 'OPL-1',
+    'license': 'AGPL-3',
 }

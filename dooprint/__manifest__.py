@@ -19,8 +19,11 @@ on its own.
     """,
 
     'author': "API SERVICE S.A.C",
+    'website': "https://dooprint.apiservicesac.com",
+    'support': "info@apiservicesac.com",
+    'images': ['static/description/banner.png'],
     'category': 'Productivity',
-    'version': '1.0.0',
+    'version': '19.0.1.0.0',
 
     'depends': [
         'base_setup',
@@ -46,5 +49,5 @@ on its own.
     },
     'application': True,
     'installable': True,
-    'license': 'OPL-1',
+    'license': 'AGPL-3',
 }
