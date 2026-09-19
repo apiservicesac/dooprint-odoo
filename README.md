@@ -108,6 +108,15 @@ Every module ships a `.pot` template and Spanish (`es.po`). To refresh a templat
 odoo i18n export -c odoo.conf -d <database> -o dooprint_pos/i18n/dooprint_pos.pot dooprint_pos
 ```
 
+## Who builds it
+
+[API SERVICE S.A.C.](https://apiservicesac.com) — Odoo development, implementation and
+infrastructure. Lima, Perú.
+
+- Dooprint: [dooprint.apiservicesac.com](https://dooprint.apiservicesac.com)
+- The print service: [github.com/apiservicesac/dooprint](https://github.com/apiservicesac/dooprint)
+- Write to us: info@apiservicesac.com
+
 ## License
 
-AGPL-3. See [LICENSE](LICENSE).
+AGPL-3. See [LICENSE](LICENSE). Copyright API SERVICE S.A.C.
