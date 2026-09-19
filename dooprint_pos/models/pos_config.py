@@ -1,9 +1,4 @@
-from odoo import api, fields, models
-
-DELIVERY_SELECTION = [
-    ('server', 'Through Odoo'),
-    ('browser', 'From the browser'),
-]
+from odoo import api, models
 
 
 def dooprint_url(printer):
@@ -16,23 +11,6 @@ def dooprint_url(printer):
 class PosConfig(models.Model):
     _inherit = 'pos.config'
 
-    dooprint_printer_id = fields.Many2one(
-        'dooprint.printer', string='Dooprint Receipt Printer',
-        domain="[('printer_type', '=', 'receipt'), '|', ('device_id.company_id', '=', False), ('device_id.company_id', '=', company_id)]",
-        help="Receipt printer of a Dooprint device. It is also the one that opens the cash drawer.")
-    dooprint_delivery = fields.Selection(
-        DELIVERY_SELECTION, string='Dooprint Delivery', required=True, default='server',
-        help="Through Odoo: the POS sends the tickets to Odoo, which queues them for the device. "
-             "Works from any network.\n"
-             "From the browser: the POS sends them straight to the device. The browser must be on the "
-             "device network and allow Local Network Access.")
-    dooprint_url = fields.Char(string='Dooprint Printer Address', compute='_compute_dooprint_url')
-
-    @api.depends('dooprint_printer_id')
-    def _compute_dooprint_url(self):
-        for config in self:
-            config.dooprint_url = dooprint_url(config.dooprint_printer_id)
-
     @api.model
     def dooprint_test_info(self, printer_id):
         """Address of a printer for the settings test button, which may run before saving."""
@@ -41,7 +19,7 @@ class PosConfig(models.Model):
 
     @api.model
     def dooprint_test_print(self, printer_id):
-        """Queue a test page through Odoo from the settings, before saving them."""
+        """Queue a test page through Odoo from the printer form, before saving it."""
         self.check_access('write')
         printer = self.env['dooprint.printer'].sudo().browse(int(printer_id)).exists()
         if not printer:
@@ -54,7 +32,8 @@ class PosConfig(models.Model):
     def _dooprint_printers(self):
         """dooprint printers this point of sale may print on."""
         self.ensure_one()
-        return (self.dooprint_printer_id | self.printer_ids.dooprint_printer_id).sudo()
+        printers = self.receipt_printer_ids | self.preparation_printer_ids
+        return printers.dooprint_printer_id.sudo()
 
     def _dooprint_print(self, printer_id, payload):
         """Queue a ticket and answer the way the POS printers expect."""

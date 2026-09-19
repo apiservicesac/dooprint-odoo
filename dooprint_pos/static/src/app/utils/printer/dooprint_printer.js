@@ -11,16 +11,23 @@ import { _t } from "@web/core/l10n/translation";
  * - "browser": the ticket goes straight to the device over the local network.
  */
 export class DooprintPrinter extends EpsonPrinter {
-    setup({ configId, printerId, url, delivery }) {
-        super.setup({ ip: "" });
-        this.configId = configId;
-        this.printerId = printerId;
-        this.delivery = delivery;
+    setup({ printer, configId }) {
         // The device serves plain HTTP on the local network: from an HTTPS page the browser only
-        // allows it through Local Network Access.
-        this.url = url;
-        this.address = `${url}/cgi-bin/epos/service.cgi`;
+        // allows it through Local Network Access. The address getter needs the url already.
+        this.url = printer.dooprint_url;
+        super.setup(...arguments);
+        this.configId = configId;
+        this.printerId = printer.raw?.dooprint_printer_id ?? printer.dooprint_printer_id?.id;
+        this.delivery = printer.dooprint_delivery;
         this.lnaTargetAddressSpace = getLNATargetAddressSpace(this.address);
+    }
+
+    /**
+     * @override
+     * The device exposes the ePOS service of the printer it holds.
+     */
+    get address() {
+        return `${this.url}/cgi-bin/epos/service.cgi`;
     }
 
     /**

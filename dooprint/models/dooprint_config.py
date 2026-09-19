@@ -14,7 +14,7 @@ class DooprintConfig(models.AbstractModel):
 
     @api.model
     def get_int(self, key):
-        value = self.env['ir.config_parameter'].sudo().get_param(key)
+        value = self.env['ir.config_parameter'].sudo().get_str(key)
         try:
             return int(value) if value else PARAMS[key]
         except ValueError:

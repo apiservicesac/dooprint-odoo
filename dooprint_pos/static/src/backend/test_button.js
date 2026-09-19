@@ -1,4 +1,4 @@
-import { Component } from "@odoo/owl";
+import { Component, useProps } from "@odoo/owl";
 import { registry } from "@web/core/registry";
 import { useService } from "@web/core/utils/hooks";
 import { _t } from "@web/core/l10n/translation";
@@ -6,12 +6,12 @@ import { standardWidgetProps } from "@web/views/widgets/standard_widget_props";
 import { getLNATargetAddressSpace, initLNA } from "@point_of_sale/app/utils/init_lna";
 
 /**
- * Test button of the POS settings. It prints the way the POS will: through Odoo, or from this
+ * Test button of the printer form. It prints the way the POS will: through Odoo, or from this
  * browser straight to the device when the delivery is "From the browser".
  */
 export class DooprintPosTest extends Component {
     static template = "dooprint_pos.TestButton";
-    static props = { ...standardWidgetProps };
+    props = useProps(standardWidgetProps);
 
     setup() {
         this.orm = useService("orm");
@@ -33,7 +33,6 @@ export class DooprintPosTest extends Component {
             return this.notify(false, _t("The Dooprint device has not reported its address."));
         }
         // Same Local Network Access check as Odoo's Epson test button.
-        odoo.use_lna = true;
         let lnaStatus = "pending";
         await initLNA(this.notification, (status) => (lnaStatus = status));
         if (lnaStatus === "danger") {

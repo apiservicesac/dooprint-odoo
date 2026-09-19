@@ -23,18 +23,18 @@
 									decoration-danger="connected_status == 'disconnected'"/>
 							</div>
 							<div class="d-flex align-items-center gap-2 small text-muted mt-1">
-								<i t-if="record.connection.raw_value == 'network'" class="fa fa-wifi fa-fw" title="Network"/>
-								<i t-else="" class="fa fa-usb fa-fw" title="USB"/>
+								<i t-if="record.connection.raw_value == 'network'" class="oi oi-fw" data-icon="wifi" title="Network"/>
+								<i t-else="" class="oi oi-fw" data-icon="usb" title="USB"/>
 								<field name="connection"/>
 								<span class="font-monospace" invisible="not ip_address">· <field name="ip_address"/></span>
 							</div>
 							<div class="d-flex align-items-center gap-2 small text-muted">
-								<i class="fa fa-server fa-fw" title="Device"/>
+								<i class="oi oi-fw" data-icon="dns" title="Device"/>
 								<field name="device_id" class="text-truncate" readonly="1"/>
 							</div>
 							<div class="d-flex align-items-center justify-content-between small mt-2 pt-2 border-top">
 								<span class="text-muted">
-									<i class="fa fa-file-text-o me-1" title="Jobs"/><t t-esc="record.job_count.value"/>
+									<i class="oi me-1" data-icon="description" title="Jobs"/><t t-out="record.job_count.value"/>
 									<span invisible="not last_job_date"> · <field name="last_job_date" widget="datetime"/></span>
 								</span>
 								<field name="last_job_state" widget="badge" invisible="not last_job_state"
@@ -55,7 +55,7 @@
 		<field name="arch" type="xml">
 			<list create="false" sample="1" decoration-muted="connected_status == 'disconnected'">
 				<header>
-					<button name="action_test_print" type="object" string="Test" icon="fa-print"
+					<button name="action_test_print" type="object" string="Test" icon="print"
 						groups="dooprint.group_dooprint_manager"/>
 				</header>
 				<field name="name"/>
@@ -82,13 +82,13 @@
 		<field name="arch" type="xml">
 			<form create="false">
 				<header>
-					<button name="action_test_print" type="object" string="Test" icon="fa-print" class="btn-primary"
+					<button name="action_test_print" type="object" string="Test" icon="print" class="btn-primary"
 						groups="dooprint.group_dooprint_manager"/>
 					<field name="connected_status" widget="statusbar"/>
 				</header>
 				<sheet>
 					<div class="oe_button_box" name="button_box">
-						<button name="action_open_jobs" type="object" class="oe_stat_button" icon="fa-file-text-o">
+						<button name="action_open_jobs" type="object" class="oe_stat_button" icon="description">
 							<field name="job_count" widget="statinfo" string="Jobs"/>
 						</button>
 					</div>

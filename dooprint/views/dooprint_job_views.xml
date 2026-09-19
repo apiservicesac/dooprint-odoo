@@ -7,7 +7,7 @@
 			<list string="Print Jobs" create="0" edit="0" sample="1"
 				decoration-danger="state == 'failed'" decoration-muted="state == 'done'">
 				<header>
-					<button name="action_retry" type="object" string="Retry" icon="fa-repeat"
+					<button name="action_retry" type="object" string="Retry" icon="refresh"
 						groups="dooprint.group_dooprint_manager"/>
 				</header>
 				<field name="id" string="#"/>
@@ -33,9 +33,9 @@
 		<field name="arch" type="xml">
 			<form string="Print Job" create="0" edit="0">
 				<header>
-					<button name="action_retry" type="object" string="Retry" icon="fa-repeat" class="btn-primary"
+					<button name="action_retry" type="object" string="Retry" icon="refresh" class="btn-primary"
 						invisible="state not in ['failed', 'sent']" groups="dooprint.group_dooprint_manager"/>
-					<button name="action_open_origin" type="object" string="Open Source" icon="fa-external-link"
+					<button name="action_open_origin" type="object" string="Open Source" icon="open_in_new"
 						invisible="not res_model"/>
 					<field name="state" widget="statusbar" statusbar_visible="queued,sent,done"/>
 				</header>

@@ -31,20 +31,23 @@
 	</data>
 
 	<data noupdate="1">
-		<record id="dooprint_device_company_rule" model="ir.rule">
+		<record id="dooprint_device_company_rule" model="ir.access">
 			<field name="name">Print devices: multi-company</field>
 			<field name="model_id" ref="model_dooprint_device"/>
-			<field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+			<field name="domain">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+			<field name="operation">crud</field>
 		</record>
-		<record id="dooprint_printer_company_rule" model="ir.rule">
+		<record id="dooprint_printer_company_rule" model="ir.access">
 			<field name="name">Printers: multi-company</field>
 			<field name="model_id" ref="model_dooprint_printer"/>
-			<field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+			<field name="domain">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+			<field name="operation">crud</field>
 		</record>
-		<record id="dooprint_job_company_rule" model="ir.rule">
+		<record id="dooprint_job_company_rule" model="ir.access">
 			<field name="name">Print jobs: multi-company</field>
 			<field name="model_id" ref="model_dooprint_job"/>
-			<field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+			<field name="domain">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+			<field name="operation">crud</field>
 		</record>
 	</data>
 </odoo>

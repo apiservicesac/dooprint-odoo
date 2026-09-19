@@ -112,7 +112,7 @@ class DooprintDevice(models.Model):
         """Issue a new pairing token and return what the user pastes into the device: the Odoo
         address with the token, in one string. Opening the wizard again replaces the token."""
         token = secrets.token_hex(16)
-        self.env['ir.config_parameter'].sudo().set_param(PAIRING_TOKEN_PARAM, token)
+        self.env['ir.config_parameter'].sudo().set_str(PAIRING_TOKEN_PARAM, token)
         return "%s?token=%s&db_name=%s" % (self.get_base_url(), token, self.env.cr.dbname)
 
     @api.model
@@ -120,7 +120,7 @@ class DooprintDevice(models.Model):
         """Pair a device with the current pairing token and return the device's own token.
         The pairing token is single use: it is cleared once a device uses it."""
         params = self.env['ir.config_parameter'].sudo()
-        expected = params.get_param(PAIRING_TOKEN_PARAM)
+        expected = params.get_str(PAIRING_TOKEN_PARAM)
         if not (pairing_token and expected and pairing_token == expected):
             return False
         identifier = values.get('identifier')
@@ -140,7 +140,7 @@ class DooprintDevice(models.Model):
             device.write(written)
         else:
             device = self.create(dict(written, identifier=identifier))
-        params.set_param(PAIRING_TOKEN_PARAM, '')
+        params.set_str(PAIRING_TOKEN_PARAM, '')
         device._sync_printers(printers)
         return device.token
 

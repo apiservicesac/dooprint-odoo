@@ -24,7 +24,7 @@
 							<div class="d-flex align-items-start gap-3">
 								<span t-attf-class="d-flex align-items-center justify-content-center rounded-3 flex-shrink-0 #{record.state.raw_value == 'online' ? 'text-bg-success' : record.state.raw_value == 'offline' ? 'text-bg-warning' : 'text-bg-secondary'}"
 									style="width: 44px; height: 44px;">
-									<i class="fa fa-server fa-lg" title="Device"/>
+									<i class="oi oi-lg" data-icon="dns" title="Device"/>
 								</span>
 								<div class="flex-grow-1 min-w-0">
 									<div class="d-flex align-items-center justify-content-between gap-2">
@@ -42,10 +42,10 @@
 
 							<div class="d-flex flex-wrap align-items-center gap-2 mt-3 small">
 								<span t-if="record.mode.raw_value == 'agent'" class="badge rounded-pill text-bg-light border">
-									<i class="fa fa-cloud me-1" title="Agent"/><field name="mode"/>
+									<i class="oi me-1" data-icon="cloud" title="Agent"/><field name="mode"/>
 								</span>
 								<span t-else="" class="badge rounded-pill text-bg-light border">
-									<i class="fa fa-building-o me-1" title="Local"/><field name="mode"/>
+									<i class="oi me-1" data-icon="business" title="Local"/><field name="mode"/>
 								</span>
 								<span class="badge rounded-pill text-bg-light border" invisible="not os">
 									<field name="os"/>
@@ -58,26 +58,26 @@
 							<div class="row g-0 mt-3 pt-2 border-top text-center small">
 								<div class="col" title="Connected printers">
 									<div class="fw-bold fs-6">
-										<t t-esc="record.connected_printer_count.value"/>/<t t-esc="record.printer_count.value"/>
+										<t t-out="record.connected_printer_count.value"/>/<t t-out="record.printer_count.value"/>
 									</div>
-									<div class="text-muted"><i class="fa fa-print me-1" title="Printers"/>Printers</div>
+									<div class="text-muted"><i class="oi me-1" data-icon="print" title="Printers"/>Printers</div>
 								</div>
 								<div class="col border-start" title="Pending jobs">
 									<div t-attf-class="fw-bold fs-6 #{record.pending_job_count.raw_value ? 'text-warning' : ''}">
-										<t t-esc="record.pending_job_count.value"/>
+										<t t-out="record.pending_job_count.value"/>
 									</div>
-									<div class="text-muted"><i class="fa fa-hourglass-half me-1" title="Pending"/>Pending</div>
+									<div class="text-muted"><i class="oi me-1" data-icon="hourglass_top" title="Pending"/>Pending</div>
 								</div>
 								<div class="col border-start" title="Failed jobs in the last 24 hours">
 									<div t-attf-class="fw-bold fs-6 #{record.failed_job_count.raw_value ? 'text-danger' : ''}">
-										<t t-esc="record.failed_job_count.value"/>
+										<t t-out="record.failed_job_count.value"/>
 									</div>
-									<div class="text-muted"><i class="fa fa-exclamation-triangle me-1" title="Failed"/>Failed</div>
+									<div class="text-muted"><i class="oi me-1" data-icon="warning" title="Failed"/>Failed</div>
 								</div>
 							</div>
 
 							<div class="text-muted small mt-2" invisible="not last_seen">
-								<i class="fa fa-heartbeat me-1" title="Last seen"/>Last seen <field name="last_seen" widget="datetime"/>
+								<i class="oi me-1" data-icon="history" title="Last seen"/>Last seen <field name="last_seen" widget="datetime"/>
 							</div>
 						</div>
 					</t>
@@ -121,16 +121,16 @@
 		<field name="arch" type="xml">
 			<form create="false">
 				<header>
-					<button name="action_open_homepage" type="object" string="Open Device" icon="fa-external-link"
+					<button name="action_open_homepage" type="object" string="Open Device" icon="open_in_new"
 						class="btn-secondary" invisible="not address"/>
-					<button name="action_refresh_printers" type="object" string="Rescan Printers" icon="fa-refresh"
+					<button name="action_refresh_printers" type="object" string="Rescan Printers" icon="refresh"
 						class="btn-secondary" invisible="mode != 'agent' or state == 'revoked'"
 						groups="dooprint.group_dooprint_manager"/>
-					<button name="action_restart" type="object" string="Restart Service" icon="fa-power-off"
+					<button name="action_restart" type="object" string="Restart Service" icon="power_settings_new"
 						class="btn-secondary" invisible="mode != 'agent' or state == 'revoked'"
 						groups="dooprint.group_dooprint_manager"
 						confirm="The device will restart its service. Continue?"/>
-					<button name="action_revoke" type="object" string="Unpair" icon="fa-chain-broken"
+					<button name="action_revoke" type="object" string="Unpair" icon="link_off"
 						class="btn-secondary" invisible="state == 'revoked'"
 						groups="dooprint.group_dooprint_manager"
 						confirm="The device will stop receiving jobs until it is paired again. Continue?"/>
@@ -138,7 +138,7 @@
 				</header>
 				<sheet>
 					<div class="oe_button_box" name="button_box">
-						<button name="action_open_printers" type="object" class="oe_stat_button" icon="fa-print">
+						<button name="action_open_printers" type="object" class="oe_stat_button" icon="print">
 							<div class="o_field_widget o_stat_info">
 								<span class="o_stat_value">
 									<field name="connected_printer_count" nolabel="1"/>/<field name="printer_count" nolabel="1"/>
@@ -146,13 +146,13 @@
 								<span class="o_stat_text">Printers</span>
 							</div>
 						</button>
-						<button name="action_open_jobs" type="object" class="oe_stat_button" icon="fa-hourglass-half">
+						<button name="action_open_jobs" type="object" class="oe_stat_button" icon="hourglass_top">
 							<field name="pending_job_count" widget="statinfo" string="Pending"/>
 						</button>
-						<button name="action_open_failed_jobs" type="object" class="oe_stat_button" icon="fa-exclamation-triangle">
+						<button name="action_open_failed_jobs" type="object" class="oe_stat_button" icon="warning">
 							<field name="failed_job_count" widget="statinfo" string="Failed (24 h)"/>
 						</button>
-						<button name="action_open_commands" type="object" class="oe_stat_button" icon="fa-terminal"
+						<button name="action_open_commands" type="object" class="oe_stat_button" icon="terminal"
 							groups="base.group_no_one">
 							<field name="command_count" widget="statinfo" string="Commands"/>
 						</button>
@@ -192,7 +192,7 @@
 									<field name="connected_status" widget="badge"
 										decoration-success="connected_status == 'connected'"
 										decoration-danger="connected_status == 'disconnected'"/>
-									<button name="action_test_print" type="object" string="Test" icon="fa-print"
+									<button name="action_test_print" type="object" string="Test" icon="print"
 										groups="dooprint.group_dooprint_manager"/>
 								</list>
 							</field>

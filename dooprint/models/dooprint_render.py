@@ -29,7 +29,7 @@ class DooprintRender(models.AbstractModel):
 
     @api.model
     def epos_from_html(self, html, width=PAPER_WIDTH):
-        image = self.env['ir.actions.report']._run_wkhtmltoimage([html], width, 0)[0]
+        image = self.env['ir.actions.report']._run_image_engine('wkhtmltopdf', [html], width, 0)[0]
         img = Image.open(BytesIO(image)).convert('L')
         height = int(img.height * width / img.width)
         img = (
