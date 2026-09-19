@@ -1,5 +1,7 @@
 # dooprint for Odoo
 
+Built and maintained by **[API SERVICE S.A.C.](https://apiservicesac.com)** · Lima, Perú
+
 Odoo 20 modules for [dooprint](https://github.com/apiservicesac/dooprint), the print service that
 runs on a computer next to the printers. With them Odoo prints on USB and network receipt printers,
 even when Odoo runs on a remote server and nobody has a browser open.
