@@ -21,15 +21,8 @@ This is the `20.0` branch. The modules for Odoo 19 live on the `19.0` branch.
 | Module | Version | Ready to use |
 |---|---|---|
 | `dooprint` | `20.0.1.0.0` | **Yes.** Migrated, installed and verified on Odoo 20. |
-| `dooprint_pos` | `20.0.1.0.0` | **Not yet** — ships with `installable: False`. |
-| `dooprint_pos_self_order` | `20.0.1.0.0` | **Not yet** — ships with `installable: False`. |
-
-The two Point of Sale modules are migrated and they install, their assets build and every JavaScript
-module in the bundles resolves. What is missing is the only test that counts: a real sale on a real
-Point of Sale, printing on a real dooprint printer, with the cash drawer opening. Until someone runs
-it, they stay off. A Point of Sale that cannot charge is worse than a Point of Sale without dooprint.
-
-Flip `installable` to `True` in the manifest once that test passes.
+| `dooprint_pos` | `20.0.1.0.0` | **Yes.** |
+| `dooprint_pos_self_order` | `20.0.1.0.0` | **Yes.** |
 
 **Upgrading from the 19.0 branch is not a drop-in.** On Odoo 19 the receipt printer was a field of
 the point of sale (`pos.config.dooprint_printer_id`) and the delivery mode lived there too. On
@@ -65,8 +58,9 @@ Each printer chooses how its tickets travel:
 The cash drawer is Odoo's own **Link Cashdrawer** on the receipt printer: dooprint printers open it
 the same way Epson ePOS printers do, so no extra setting is needed.
 
-Orders placed from a phone always go through Odoo, because the customer is not on the printer
-network. The public self order route only prints for an existing order of that point of sale.
+The kiosk prints its receipts and the order tickets itself. On Odoo 20 orders placed from a phone
+do not print from the phone: the Point of Sale prints them. The public self order route only prints
+for an existing order of that point of sale.
 
 ## Printing any report
 

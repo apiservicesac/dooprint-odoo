@@ -37,6 +37,6 @@ Each point of sale chooses how its tickets reach the printer:
             'dooprint_pos/static/src/app/**/*',
         ],
     },
-    'installable': False,
+    'installable': True,
     'license': 'AGPL-3',
 }

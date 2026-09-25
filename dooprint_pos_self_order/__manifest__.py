@@ -30,6 +30,6 @@ customer is not on the printer network.
             'dooprint_pos_self_order/static/src/app/**/*',
         ],
     },
-    'installable': False,
+    'installable': True,
     'license': 'AGPL-3',
 }
