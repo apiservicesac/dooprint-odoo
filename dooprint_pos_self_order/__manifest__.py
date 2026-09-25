@@ -15,11 +15,13 @@ customer is not on the printer network.
     'support': "info@apiservicesac.com",
     'images': ['static/description/banner.png'],
     'category': 'Sales/Point of Sale',
-    'version': '19.0.1.0.0',
+    'version': '18.0.1.0.0',
 
     'depends': [
         'dooprint_pos',
         'pos_self_order',
+        # Brings the Epson printer, which the dooprint one extends, to the kiosk.
+        'pos_self_order_epson_printer',
     ],
     'auto_install': True,
 

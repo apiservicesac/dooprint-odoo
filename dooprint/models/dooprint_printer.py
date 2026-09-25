@@ -36,7 +36,9 @@ class DooprintPrinter(models.Model):
         selection=lambda self: self.env['dooprint.job']._fields['state']._description_selection(self.env),
         string='Last Job Status', compute='_compute_last_job')
 
-    _printer_unique = models.Constraint('UNIQUE(device_id, identifier)', "This printer is already registered on the device.")
+    _sql_constraints = [
+        ('printer_unique', 'UNIQUE(device_id, identifier)', "This printer is already registered on the device."),
+    ]
 
     @api.depends('device_id.address', 'identifier')
     def _compute_epos_url(self):

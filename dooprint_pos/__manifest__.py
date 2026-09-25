@@ -19,10 +19,11 @@ Each point of sale chooses how its tickets reach the printer:
     'support': "info@apiservicesac.com",
     'images': ['static/description/banner.png'],
     'category': 'Sales/Point of Sale',
-    'version': '19.0.1.0.0',
+    'version': '18.0.1.0.0',
 
     'depends': [
         'point_of_sale',
+        'pos_epson_printer',
         'dooprint',
     ],
 
@@ -33,6 +34,7 @@ Each point of sale chooses how its tickets reach the printer:
     ],
     'assets': {
         'web.assets_backend': [
+            'point_of_sale/static/src/app/utils/init_lna.js',
             'dooprint_pos/static/src/backend/**/*',
         ],
         'point_of_sale._assets_pos': [

@@ -6,27 +6,19 @@
 			<field name="sequence">45</field>
 		</record>
 
-		<record model="res.groups.privilege" id="res_groups_privilege_dooprint">
-			<field name="name">Dooprint</field>
-			<field name="category_id" ref="module_category_dooprint"/>
-			<field name="sequence">10</field>
-		</record>
-
 		<record id="group_dooprint_user" model="res.groups">
 			<field name="name">User</field>
-			<field name="sequence">10</field>
 			<field name="comment">Sees the devices, their printers and the job queue.</field>
-			<field name="privilege_id" ref="res_groups_privilege_dooprint"/>
+			<field name="category_id" ref="module_category_dooprint"/>
 			<field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
 		</record>
 
 		<record id="group_dooprint_manager" model="res.groups">
 			<field name="name">Administrator</field>
-			<field name="sequence">20</field>
 			<field name="comment">Connects devices, sends test pages and remote commands.</field>
-			<field name="privilege_id" ref="res_groups_privilege_dooprint"/>
+			<field name="category_id" ref="module_category_dooprint"/>
 			<field name="implied_ids" eval="[(4, ref('group_dooprint_user'))]"/>
-			<field name="user_ids" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+			<field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
 		</record>
 	</data>
 

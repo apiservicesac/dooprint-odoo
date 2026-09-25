@@ -8,7 +8,7 @@ from odoo.addons.pos_self_order.controllers.orders import PosSelfOrderController
 
 class DooprintSelfOrderController(PosSelfOrderController):
 
-    @http.route('/dooprint_pos/self_order/print', type='jsonrpc', auth='public', website=True)
+    @http.route('/dooprint_pos/self_order/print', type='json', auth='public', website=True)
     def dooprint_print(self, access_token, printer_id, payload, order_id, order_access_token):
         """Queue a ticket from the kiosk or a phone. The order must belong to this point of sale, so
         the public access token alone is not enough to print."""

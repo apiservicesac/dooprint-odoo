@@ -1,4 +1,4 @@
-import { SelfOrder } from "@pos_self_order/app/services/self_order_service";
+import { SelfOrder } from "@pos_self_order/app/self_order_service";
 import { DooprintSelfOrderPrinter } from "@dooprint_pos_self_order/app/utils/printer/dooprint_self_order_printer";
 import { initLNA } from "@point_of_sale/app/utils/init_lna";
 import { patch } from "@web/core/utils/patch";
@@ -28,11 +28,11 @@ patch(SelfOrder.prototype, {
      * Preparation printers of type dooprint.
      * @override
      */
-    createPrinter(printer) {
+    create_printer(printer) {
         if (printer.printer_type === "dooprint") {
             return this.createDooprintPrinter(printer.raw.dooprint_printer_id, printer.dooprint_url);
         }
-        return super.createPrinter(...arguments);
+        return super.create_printer(...arguments);
     },
 
     createDooprintPrinter(printerId, url) {

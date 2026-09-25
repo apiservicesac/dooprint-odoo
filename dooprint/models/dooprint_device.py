@@ -59,8 +59,10 @@ class DooprintDevice(models.Model):
     failed_job_count = fields.Integer(string='Failed Jobs (24 h)', compute='_compute_counts')
     command_count = fields.Integer(string='Command Count', compute='_compute_counts')
 
-    _identifier_unique = models.Constraint('UNIQUE(identifier)', "This device is already registered.")
-    _token_unique = models.Constraint('UNIQUE(token)', "The device token must be unique.")
+    _sql_constraints = [
+        ('identifier_unique', 'UNIQUE(identifier)', "This device is already registered."),
+        ('token_unique', 'UNIQUE(token)', "The device token must be unique."),
+    ]
 
     @api.depends('token')
     def _compute_paired(self):

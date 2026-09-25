@@ -20,7 +20,7 @@ export class DooprintPosTest extends Component {
 
     async onClick() {
         const data = this.props.record.data;
-        const printerId = data.dooprint_printer_id?.id;
+        const printerId = data.dooprint_printer_id?.[0];
         if (!printerId) {
             return this.notify(false, _t("Select a printer first."));
         }
@@ -34,11 +34,7 @@ export class DooprintPosTest extends Component {
         }
         // Same Local Network Access check as Odoo's Epson test button.
         odoo.use_lna = true;
-        let lnaStatus = "pending";
-        await initLNA(this.notification, (status) => (lnaStatus = status));
-        if (lnaStatus === "danger") {
-            return;
-        }
+        await initLNA(this.notification);
         const address = `${url}/cgi-bin/epos/service.cgi`;
         try {
             const response = await fetch(address, {

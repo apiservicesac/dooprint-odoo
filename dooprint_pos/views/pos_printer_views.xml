@@ -8,11 +8,9 @@
 			<field name="proxy_ip" position="after">
 				<field name="dooprint_printer_id" invisible="printer_type != 'dooprint'"
 					required="printer_type == 'dooprint'" options="{'no_create': True}"/>
-			</field>
-			<widget name="point_of_sale_test_epos" position="after">
 				<button name="action_dooprint_test" type="object" string="Test" icon="fa-print" class="btn-secondary"
-					invisible="printer_type != 'dooprint' or not dooprint_printer_id"/>
-			</widget>
+					invisible="printer_type != 'dooprint' or not dooprint_printer_id" colspan="2"/>
+			</field>
 		</field>
 	</record>
 </odoo>

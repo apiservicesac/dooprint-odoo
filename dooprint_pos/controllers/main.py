@@ -5,7 +5,7 @@ from odoo.http import request
 
 class DooprintPosController(http.Controller):
 
-    @http.route('/dooprint_pos/print', type='jsonrpc', auth='user')
+    @http.route('/dooprint_pos/print', type='json', auth='user')
     def print_ticket(self, config_id, printer_id, payload):
         """Queue a ticket rendered by the POS on one of the dooprint printers of that POS."""
         config = request.env['pos.config'].browse(int(config_id)).exists()

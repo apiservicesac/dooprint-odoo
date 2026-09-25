@@ -20,8 +20,8 @@ class PosPrinter(models.Model):
             printer.dooprint_url = dooprint_url(printer.dooprint_printer_id)
 
     @api.model
-    def _load_pos_data_fields(self, config):
-        return super()._load_pos_data_fields(config) + ['dooprint_printer_id', 'dooprint_url']
+    def _load_pos_data_fields(self, config_id):
+        return super()._load_pos_data_fields(config_id) + ['dooprint_printer_id', 'dooprint_url']
 
     def action_dooprint_test(self):
         self.ensure_one()

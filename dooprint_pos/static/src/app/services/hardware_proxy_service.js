@@ -1,4 +1,4 @@
-import { HardwareProxy } from "@point_of_sale/app/services/hardware_proxy_service";
+import { HardwareProxy } from "@point_of_sale/app/hardware_proxy/hardware_proxy_service";
 import { patch } from "@web/core/utils/patch";
 
 patch(HardwareProxy.prototype, {

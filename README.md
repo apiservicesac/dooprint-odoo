@@ -4,25 +4,30 @@
 
 Built and maintained by **[API SERVICE S.A.C.](https://apiservicesac.com)** · Lima, Perú
 
-Odoo 19 modules for [dooprint](https://github.com/apiservicesac/dooprint), the print service that
+Odoo 18 modules for [dooprint](https://github.com/apiservicesac/dooprint), the print service that
 runs on a computer next to the printers. With them Odoo prints on USB and network receipt printers,
 even when Odoo runs on a remote server and nobody has a browser open.
 
-This is the `19.0` branch. The modules for Odoo 20 live on the `20.0` branch.
+This is the `18.0` branch. The modules for Odoo 19 and 20 live on the `19.0` and `20.0` branches.
 
 | Module | Depends on | What it does |
 |---|---|---|
 | `dooprint` | `base_setup`, `bus` | Devices, printers, the print job queue and remote commands. Other modules print through it. |
-| `dooprint_pos` | `point_of_sale`, `dooprint` | Receipts, cash drawer and preparation printers of the Point of Sale. |
-| `dooprint_pos_self_order` | `dooprint_pos`, `pos_self_order` | Kiosk and mobile self orders. Installs itself when both are present. |
+| `dooprint_pos` | `point_of_sale`, `pos_epson_printer`, `dooprint` | Receipts, cash drawer and preparation printers of the Point of Sale. |
+| `dooprint_pos_self_order` | `dooprint_pos`, `pos_self_order`, `pos_self_order_epson_printer` | Kiosk and mobile self orders. Installs itself when both are present. |
 
-## Status on Odoo 19
+## Status on Odoo 18
 
 | Module | Version | Ready to use |
 |---|---|---|
-| `dooprint` | `19.0.1.0.0` | **Yes.** |
-| `dooprint_pos` | `19.0.1.0.0` | **Yes.** |
-| `dooprint_pos_self_order` | `19.0.1.0.0` | **Yes.** |
+| `dooprint` | `18.0.1.0.0` | Migrated from the `19.0` branch, pending a test on Odoo 18. |
+| `dooprint_pos` | `18.0.1.0.0` | Migrated from the `19.0` branch, pending a test on Odoo 18. |
+| `dooprint_pos_self_order` | `18.0.1.0.0` | Migrated from the `19.0` branch, pending a test on Odoo 18. |
+
+Odoo 18 keeps the Epson printer in its own modules (`pos_epson_printer` and
+`pos_self_order_epson_printer`), and the dooprint printer builds on it. The Point of Sale of Odoo 18
+has no Local Network Access entry in its menu: the browser asks for the permission on the first
+ticket it sends to the device.
 
 ## How a job reaches the printer
 

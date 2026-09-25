@@ -1,4 +1,4 @@
-import { PosStore } from "@point_of_sale/app/services/pos_store";
+import { PosStore } from "@point_of_sale/app/store/pos_store";
 import { DooprintPrinter } from "@dooprint_pos/app/utils/printer/dooprint_printer";
 import { patch } from "@web/core/utils/patch";
 
@@ -12,8 +12,8 @@ patch(PosStore.prototype, {
             );
         }
         if (this.usesDooprintFromBrowser()) {
-            // Turn on Odoo's Local Network Access handling (permission check, notifications and
-            // the status in the menu) as the "point_of_sale.use_lna" parameter does for Epson.
+            // Turn on Odoo's Local Network Access handling (permission check and notifications)
+            // as the "point_of_sale.use_lna" parameter does for Epson.
             odoo.use_lna = true;
         }
     },
@@ -30,24 +30,17 @@ patch(PosStore.prototype, {
     },
 
     /**
-     * Address of the first Dooprint device the browser talks to.
-     */
-    dooprintDeviceUrl() {
-        if (this.config.dooprint_url) {
-            return this.config.dooprint_url;
-        }
-        return this.models["pos.printer"].getAll().find((printer) => printer.dooprint_url)?.dooprint_url;
-    },
-
-    /**
      * Preparation printers of type dooprint.
      * @override
      */
-    createPrinter(config) {
+    create_printer(config) {
         if (config.printer_type === "dooprint") {
-            return this.createDooprintPrinter(config.dooprint_printer_id, config.dooprint_url);
+            // The printer arrives serialized, and a many2one to a model the POS does not load
+            // comes as false: read it from the raw record.
+            const printerId = this.models["pos.printer"].get(config.id).raw.dooprint_printer_id;
+            return this.createDooprintPrinter(printerId, config.dooprint_url);
         }
-        return super.createPrinter(...arguments);
+        return super.create_printer(...arguments);
     },
 
     createDooprintPrinter(printerId, url) {

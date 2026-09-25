@@ -1,4 +1,4 @@
-import { EpsonPrinter } from "@point_of_sale/app/utils/printer/epson_printer";
+import { EpsonPrinter } from "@pos_epson_printer/app/epson_printer";
 import { getLNATargetAddressSpace } from "@point_of_sale/app/utils/init_lna";
 import { rpc } from "@web/core/network/rpc";
 import { _t } from "@web/core/l10n/translation";
@@ -31,14 +31,17 @@ export class DooprintPrinter extends EpsonPrinter {
             if (!this.url) {
                 return this.notReachable(_t("The Dooprint device has not reported its address."));
             }
-            const result = await super.sendPrintingJob(payload);
-            if (result.errorCode === "PRINTER_NOT_REACHABLE") {
-                result.message = _t(
-                    "The Dooprint device at %s cannot be reached. Check that this browser is on the same network and allows Local Network Access.",
-                    this.url
+            // The Epson printer of 18 throws when the device does not answer.
+            try {
+                return await super.sendPrintingJob(payload);
+            } catch {
+                return this.notReachable(
+                    _t(
+                        "The Dooprint device at %s cannot be reached. Check that this browser is on the same network and allows Local Network Access.",
+                        this.url
+                    )
                 );
             }
-            return result;
         }
         try {
             return await this.sendThroughOdoo(payload);
