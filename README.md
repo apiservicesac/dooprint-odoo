@@ -68,6 +68,17 @@ the same way Epson ePOS printers do, so no extra setting is needed.
 Orders placed from a phone always go through Odoo, because the customer is not on the printer
 network. The public self order route only prints for an existing order of that point of sale.
 
+## Printing any report
+
+Any Odoo report can print on a dooprint printer. In **dooprint › Configuration › Report Printers**,
+create a printer with the type **Dooprint**, pick the dooprint printer and link the reports. When
+someone prints one of them, Odoo asks for the printer, renders the report and queues it for the
+device, so it prints from any network. Receipt printers take PDF reports, printed as an image;
+label printers take ZPL reports.
+
+This relies on the report printers that Odoo added in version 20, so it only exists from Odoo 20
+on. The `19.0` branch does not have it.
+
 ## Using it from another module
 
 Queue a print job on a printer. The payload is an ePOS-Print request, or ZPL for label printers:
