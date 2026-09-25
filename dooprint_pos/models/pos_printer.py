@@ -30,6 +30,13 @@ class PosPrinter(models.Model):
         for printer in self:
             printer.dooprint_url = dooprint_url(printer.dooprint_printer_id)
 
+    @api.onchange('printer_type', 'dooprint_delivery')
+    def _onchange_dooprint_delivery(self):
+        """From the browser the device is reached over Local Network Access, so the POS checks
+        that permission on start like it does for Epson printers."""
+        for printer in self.filtered(lambda p: p.printer_type == 'dooprint'):
+            printer.use_lna = printer.dooprint_delivery == 'browser'
+
     @api.model
     def _load_pos_data_fields(self, config):
         return super()._load_pos_data_fields(config) + [

@@ -15,6 +15,14 @@
 				<field name="dooprint_delivery" widget="radio" invisible="printer_type != 'dooprint'"/>
 				<field name="dooprint_url" invisible="1"/>
 			</field>
+			<!-- Set from the delivery for dooprint printers. -->
+			<field name="use_lna" position="attributes">
+				<attribute name="invisible">printer_type == 'dooprint'</attribute>
+			</field>
+			<!-- Odoo's test button only prints on Epson printers; dooprint has its own. -->
+			<widget name="point_of_sale_test_epos" position="attributes">
+				<attribute name="invisible">printer_type == 'dooprint'</attribute>
+			</widget>
 			<widget name="point_of_sale_test_epos" position="after">
 				<widget name="dooprint_pos_test" invisible="printer_type != 'dooprint'"/>
 			</widget>

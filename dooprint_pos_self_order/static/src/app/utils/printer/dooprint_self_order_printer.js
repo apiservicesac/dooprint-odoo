@@ -13,6 +13,7 @@ export class DooprintSelfOrderPrinter extends DooprintPrinter {
         // A phone is not on the printer network: its orders always go through Odoo.
         if (!kiosk) {
             this.delivery = "server";
+            this.use_lna = false;
         }
     }
 

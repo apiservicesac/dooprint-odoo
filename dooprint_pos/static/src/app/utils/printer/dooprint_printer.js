@@ -19,6 +19,9 @@ export class DooprintPrinter extends EpsonPrinter {
         this.configId = configId;
         this.printerId = printer.raw?.dooprint_printer_id ?? printer.dooprint_printer_id?.id;
         this.delivery = printer.dooprint_delivery;
+        // Odoo only sends the Local Network Access hint when use_lna is set; from the browser the
+        // device needs it whatever the checkbox says.
+        this.use_lna = this.delivery === "browser";
         this.lnaTargetAddressSpace = getLNATargetAddressSpace(this.address);
     }
 
