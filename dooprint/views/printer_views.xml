@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<record id="printer_view_form" model="ir.ui.view">
+		<field name="name">printer.form.dooprint</field>
+		<field name="model">printer.printer</field>
+		<field name="inherit_id" ref="printer.printer_view_form"/>
+		<field name="arch" type="xml">
+			<!-- A dooprint printer is reached through its device, not by IP. -->
+			<field name="ip_address" position="attributes">
+				<attribute name="required">type != 'dooprint'</attribute>
+				<attribute name="invisible">type == 'dooprint'</attribute>
+			</field>
+			<field name="ip_address" position="after">
+				<field name="dooprint_printer_id" invisible="type != 'dooprint'"
+					required="type == 'dooprint'" options="{'no_create': True}"/>
+			</field>
+		</field>
+	</record>
+</odoo>

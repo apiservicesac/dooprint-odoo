@@ -4,4 +4,6 @@ from . import dooprint_printer
 from . import dooprint_job
 from . import dooprint_command
 from . import dooprint_render
+from . import ir_actions_report
+from . import printer_printer
 from . import res_config_settings

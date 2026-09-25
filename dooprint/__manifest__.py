@@ -14,8 +14,9 @@ Depending on where Odoo runs, a job travels in one of two ways:
 - Agent: the device, inside the customer network, picks up its jobs and reports the result.
   Odoo wakes it up through the bus, so it prints right away without open ports or tunnels.
 
-Other modules queue their jobs here and get the result back; this module prints nothing
-on its own.
+Any report can print on a dooprint printer: add it in Settings › Printers with the type
+Dooprint and link it to the report. Odoo renders the report and queues it for the device, so it
+prints from any network. Other modules queue their own jobs here and get the result back.
     """,
 
     'author': "API SERVICE S.A.C",
@@ -28,6 +29,7 @@ on its own.
     'depends': [
         'base_setup',
         'bus',
+        'printer',
     ],
 
     'data': [
@@ -39,12 +41,14 @@ on its own.
         'views/dooprint_job_views.xml',
         'views/dooprint_command_views.xml',
         'views/dooprint_device_views.xml',
+        'views/printer_views.xml',
         'views/res_config_settings_views.xml',
         'views/dooprint_menus.xml',
     ],
     'assets': {
         'web.assets_backend': [
             'dooprint/static/src/views/**/*',
+            'dooprint/static/src/printer/**/*',
         ],
     },
     'application': True,
