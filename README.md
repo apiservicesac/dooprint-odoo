@@ -2,7 +2,7 @@
 
 <a href="https://apiservicesac.com"><img src="dooprint/static/description/logo-api-service-sac.png" alt="API SERVICE S.A.C." height="48" align="right"></a>
 
-Built and maintained by **[API SERVICE S.A.C.](https://apiservicesac.com)** · Lima, Perú
+Built and maintained by **[Josue Salazar](https://github.com/Josuesp1620)** ([@Josuesp1620](https://github.com/Josuesp1620)) and **[API SERVICE S.A.C.](https://apiservicesac.com)** · Lima, Perú
 
 Odoo 20 modules for [dooprint](https://github.com/apiservicesac/dooprint), the print service that
 runs on a computer next to the printers. With them Odoo prints on USB and network receipt printers,
@@ -118,6 +118,8 @@ odoo i18n export -c odoo.conf -d <database> -o dooprint_pos/i18n/dooprint_pos.po
 ```
 
 ## Who builds it
+
+**[Josue Salazar](https://github.com/Josuesp1620)** ([@Josuesp1620](https://github.com/Josuesp1620)) — author and maintainer.
 
 [API SERVICE S.A.C.](https://apiservicesac.com) — Odoo development, implementation and
 infrastructure. Lima, Perú.

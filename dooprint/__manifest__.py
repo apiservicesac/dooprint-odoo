@@ -19,7 +19,8 @@ Dooprint and link it to the report. Odoo renders the report and queues it for th
 prints from any network. Other modules queue their own jobs here and get the result back.
     """,
 
-    'author': "API SERVICE S.A.C",
+    'author': "Josue Salazar (Josuesp1620), API SERVICE S.A.C",
+    'maintainer': "Josue Salazar (Josuesp1620), API SERVICE S.A.C",
     'website': "https://dooprint.apiservicesac.com",
     'support': "info@apiservicesac.com",
     'images': ['static/description/banner.png'],
