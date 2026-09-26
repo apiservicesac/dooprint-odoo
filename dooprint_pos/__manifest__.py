@@ -14,8 +14,8 @@ Each point of sale chooses how its tickets reach the printer:
   The browser must be on the same network and allow Local Network Access.
     """,
 
-    'author': "Josue Salazar (Josuesp1620), API SERVICE S.A.C",
-    'maintainer': "Josue Salazar (Josuesp1620), API SERVICE S.A.C",
+    'author': "Josue Salazar, API SERVICE S.A.C",
+    'maintainer': "Josue Salazar, API SERVICE S.A.C",
     'website': "https://dooprint.apiservicesac.com",
     'support': "info@apiservicesac.com",
     'images': ['static/description/banner.png'],

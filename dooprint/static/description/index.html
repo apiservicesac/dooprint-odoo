@@ -16,18 +16,17 @@
     <table role="presentation" style="margin:20px auto 0; border-collapse:collapse;">
         <tr>
             <td style="padding:0 10px 0 0; vertical-align:middle;">
-                <a href="https://www.linkedin.com/in/joucode" title="Josue Salazar en LinkedIn"><img src="avatar-josuesp1620.jpg" alt="Josue Salazar" style="width:44px; height:44px; border-radius:50%; border:2px solid #FFFFFF; box-shadow:0 0 0 1px #E5E7EB; display:block;"/></a>
+                <a href="https://www.linkedin.com/in/joucode"><img src="avatar-josuesp1620.jpg" alt="Josue Salazar" style="width:44px; height:44px; border-radius:50%; border:2px solid #FFFFFF; box-shadow:0 0 0 1px #E5E7EB; display:block;"/></a>
             </td>
-            <td style="padding:0 16px 0 0; vertical-align:middle; text-align:left; line-height:1.3;">
+            <td style="padding:0 16px 0 0; vertical-align:middle; text-align:left; line-height:1.35;">
                 <a href="https://www.linkedin.com/in/joucode" style="color:#1F2937; font-size:16px; font-weight:600; text-decoration:none;">Josue Salazar</a><br/>
-                <a href="https://www.linkedin.com/in/joucode" style="color:#6B7280; font-size:13px; font-weight:600; text-decoration:none;">LinkedIn</a>
-                <span style="color:#D1D5DB;">&middot;</span>
-                <a href="https://github.com/Josuesp1620" style="color:#6B7280; font-size:13px; font-weight:600; text-decoration:none;">GitHub</a>
+                <a href="https://www.linkedin.com/in/joucode" style="color:#6B7280; font-size:13px; font-weight:600; text-decoration:none;">linkedin.com/in/joucode</a><br/>
+                <a href="https://github.com/Josuesp1620" style="color:#6B7280; font-size:13px; font-weight:600; text-decoration:none;">github.com/Josuesp1620</a>
             </td>
             <td style="padding:0 16px; vertical-align:middle; border-left:2px solid #E5E7EB;">
-                <a href="https://apiservicesac.com" title="API SERVICE S.A.C."><img src="logo-api-service-sac.png" alt="API SERVICE S.A.C." style="height:40px; display:block;"/></a>
+                <a href="https://apiservicesac.com"><img src="logo-api-service-sac.png" alt="API SERVICE S.A.C." style="height:40px; display:block;"/></a>
             </td>
-            <td style="padding:0; vertical-align:middle; text-align:left; line-height:1.3;">
+            <td style="padding:0; vertical-align:middle; text-align:left; line-height:1.35;">
                 <a href="https://apiservicesac.com" style="color:#1462E8; font-size:16px; font-weight:700; text-decoration:none;">API SERVICE SAC</a><br/>
                 <a href="https://apiservicesac.com" style="color:#6B7280; font-size:13px; font-weight:600; text-decoration:none;">apiservicesac.com</a>
             </td>
@@ -51,10 +50,10 @@
 <section style="padding:32px 0; background:#F9FAFB;">
     <h2 style="font-size:26px; color:#1F2937;">How a job reaches the printer</h2>
     <table style="width:100%; border-collapse:collapse; font-size:15px; color:#4B5563;">
-        <tr style="background:#F28A54; color:#FFFFFF;">
-            <th style="padding:10px; text-align:left;">Mode</th>
-            <th style="padding:10px; text-align:left;">When to use it</th>
-            <th style="padding:10px; text-align:left;">How it works</th>
+        <tr style="color:#C2410C; border-bottom:2px solid #F28A54;">
+            <th style="padding:10px; text-align:left; font-weight:700; border-bottom:2px solid #F28A54;">Mode</th>
+            <th style="padding:10px; text-align:left; font-weight:700; border-bottom:2px solid #F28A54;">When to use it</th>
+            <th style="padding:10px; text-align:left; font-weight:700; border-bottom:2px solid #F28A54;">How it works</th>
         </tr>
         <tr>
             <td style="padding:10px; border-bottom:1px solid #E5E7EB;"><b>Agent</b></td>
@@ -86,14 +85,14 @@
         This module prints nothing on its own: other modules queue their jobs through it and get the
         result back.
     </p>
-    <pre style="background:#1F2937; color:#F9FAFB; padding:16px; border-radius:6px; font-size:14px; overflow:auto;">
+    <pre style="color:#1F2937; border:1px solid #E5E7EB; border-left:4px solid #F28A54; padding:14px 16px; border-radius:6px; font-size:14px; white-space:pre-wrap; word-break:break-word;">
 job = self.env['dooprint.job']._enqueue(printer, payload, origin=record)</pre>
     <p style="font-size:16px; color:#4B5563; line-height:1.6;">
         The payload is an ePOS-Print request, or ZPL for label printers. A QWeb template can be
         turned into a printable image, so a ticket looks the same on any printer regardless of its
         code page:
     </p>
-    <pre style="background:#1F2937; color:#F9FAFB; padding:16px; border-radius:6px; font-size:14px; overflow:auto;">
+    <pre style="color:#1F2937; border:1px solid #E5E7EB; border-left:4px solid #F28A54; padding:14px 16px; border-radius:6px; font-size:14px; white-space:pre-wrap; word-break:break-word;">
 payload = self.env['dooprint.render'].epos_from_template('my_module.ticket', values)</pre>
     <p style="font-size:16px; color:#4B5563; line-height:1.6;">
         When the origin record defines <code>_dooprint_job_done(job)</code>, it is called every time
@@ -127,9 +126,8 @@ payload = self.env['dooprint.render'].epos_from_template('my_module.ticket', val
     <p style="font-size:16px; color:#4B5563;">
         <a href="https://www.linkedin.com/in/joucode"><img src="avatar-josuesp1620.jpg" alt="Josue Salazar" style="width:56px; height:56px; border-radius:50%; display:inline-block; vertical-align:middle; margin:0 10px 14px 0;"/></a>
         <a href="https://apiservicesac.com"><img src="logo-api-service-sac.png" alt="API SERVICE S.A.C." style="height:56px; display:inline-block; vertical-align:middle; margin:0 0 14px;"/></a><br/>
-        Written and maintained by <a href="https://www.linkedin.com/in/joucode" style="color:#1F2937; font-weight:600;">Josue Salazar</a>
-        (<a href="https://www.linkedin.com/in/joucode" style="color:#1F2937;">LinkedIn</a> &middot; <a href="https://github.com/Josuesp1620" style="color:#1F2937;">GitHub</a>)
-        and <a href="https://apiservicesac.com" style="color:#1462E8; font-weight:600;">API SERVICE S.A.C.</a><br/>
+        Written and maintained by <b style="color:#1F2937;">Josue Salazar</b> and <b style="color:#1462E8;">API SERVICE S.A.C.</b><br/>
+        <a href="https://www.linkedin.com/in/joucode" style="color:#1F2937;">linkedin.com/in/joucode</a> &middot; <a href="https://github.com/Josuesp1620" style="color:#1F2937;">github.com/Josuesp1620</a> &middot; <a href="https://apiservicesac.com" style="color:#1462E8;">apiservicesac.com</a><br/>
         Questions and bug reports: <a href="mailto:info@apiservicesac.com" style="color:#F28A54;">info@apiservicesac.com</a>
     </p>
     <p style="font-size:14px; color:#9CA3AF;">Licensed under AGPL-3.</p>
