@@ -10,8 +10,8 @@ delivery chosen on the point of sale. Orders placed from a phone always go throu
 customer is not on the printer network.
     """,
 
-    'author': "Josue Salazar (Josuesp1620), API SERVICE S.A.C",
-    'maintainer': "Josue Salazar (Josuesp1620), API SERVICE S.A.C",
+    'author': "Josue Salazar, API SERVICE S.A.C",
+    'maintainer': "Josue Salazar, API SERVICE S.A.C",
     'website': "https://dooprint.apiservicesac.com",
     'support': "info@apiservicesac.com",
     'images': ['static/description/banner.png'],
